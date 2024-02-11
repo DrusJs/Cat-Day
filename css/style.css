@@ -292,8 +292,8 @@ body {
     position: fixed;
     right: -100px;
     bottom: 190px;
-    width: 100%;
-    min-width: 327px;
+    width: 80%;
+    min-width: 300px;
     max-width: 350px;
 }
 
