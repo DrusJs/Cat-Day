@@ -32,7 +32,7 @@
 body {
     background: url(../images/background.png) no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .promo-container {
@@ -186,7 +186,7 @@ body {
     background: url(../images/background.png) no-repeat;
     background-size: cover;
     display: none;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     justify-content: center;
     align-items: center;
