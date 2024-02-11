@@ -1,0 +1,375 @@
+:root {
+    --color-yellow: #FFCC00;
+    --color-violet: #A7268D;
+    --color-white: #FFFFFF;
+    --color-tr-white: rgba(255, 255, 255, 0.6);
+    --color-tr-black: rgba(0, 0, 0, 0.3);
+    --font-primary-m: TisaSansProMedium;
+    --font-primary-b: TisaSansProBold;
+    --action-color: radial-gradient(50% 50% at 50% 50%, #A42082 32.2%, #8C1F74 100%);
+}
+
+
+@font-face {
+    font-family: TisaSansProMedium;
+    src: url(../fonts/Tisa\ Sans\ Pro\ Medium.ttf) format("truetype"), url(../fonts/Tisa-Sans-Pro-Medium.woff) format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: TisaSansProBold;
+    src: url(../fonts/Tisa\ Sans\ Pro\ Bold.ttf) format("truetype"), url(../fonts/Tisa-Sans-Pro-Bold.woff) format("woff");
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: url(../images/background.png) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.promo-container {
+    display: flex;
+    gap: 0 20px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 100px;
+    position: relative;
+    padding: 100px 20px;
+}
+
+.promo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px 0;
+}
+
+.whiskas-logo {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.main-cat {
+    width: 100%;
+    min-width: 480px;
+}
+
+
+.app-container {
+    width: 100%;
+    max-width: 450px;  
+}
+
+.close-btn {
+    z-index: 4;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--color-tr-black);
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}
+
+.promo-logo, .app-main-cat {
+    width: 100%;
+    max-width: 343px;
+}
+
+.main-app-images {
+    margin: 0 16px;
+    padding: 32px 0 14px 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: 224px;
+    background: var(--action-color);
+    backdrop-filter: blur(12px);
+    border-radius: 36px 36px 0 0;
+}
+
+.action-item {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 36px;
+    width: 100%;
+}
+
+.select-container {
+    display: none;
+    flex-direction: column;
+}
+
+.action-item.active, .action-container.active, 
+.select-container.active, .main-app-images.active,
+.small-gap.active, .select-animate.active {
+    display: flex;
+}
+
+.select-result-cozy.active, .select-result-food.active {
+    display:block;
+}
+
+.action-item-radio {
+    align-items: baseline;
+}
+
+.action-item-radio input:checked+label::after {
+    display: block;
+}
+
+.promo-image-text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    gap: 12px;
+}
+
+.promo-app-image {
+    width: 100%;
+    max-width: 240px;
+    min-width: 190px;
+}
+
+.promo-text {
+    min-width: 87px;
+}
+
+.promo-line {
+    height: 88px;
+    border-left: var(--color-yellow) solid 3px;
+}
+
+.app-btn {
+    background-color: var(--color-yellow);
+    font-family: var(--font-primary-b);
+    color: var(--color-violet);
+    font-size: 24px;
+    width: 95%;
+    min-width: 290px;
+    min-height: 56px;
+    height: 56px;
+    border-radius: 60px;
+    border: none;
+}
+
+.p-desc {
+    font-family: var(--font-primary-m);
+    color: var(--color-white);
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    line-height: 28px;
+}
+
+.app-error {
+    background: url(../images/background.png) no-repeat;
+    background-size: cover;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 46px;
+    padding: 0 20px;
+}
+
+.app-error.active {
+    display: flex;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 3;
+}
+
+
+.title {
+    font-family: var(--font-primary-b);
+    color: var(--color-white);
+    font-size: 36px;
+    letter-spacing: -0.2px;
+    text-align: center;
+    line-height: 36px;
+}
+
+.p-note {
+    font-family: var(--font-primary-m);
+    color: var(--color-tr-white);
+    font-size: 13px;
+    text-align: center;
+    line-height: 16px;
+    margin-top: -24px;
+}
+
+.desc-radio {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    text-align: left;
+}
+
+.desc-radio::before {
+    margin-top: 1px;
+    content: "";
+    color: var(--color-yellow);
+    border-radius: 24px;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    border: 1.5px var(--color-yellow) solid;
+    min-width: 22px;
+}
+
+.desc-radio::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+    background-color: var(--color-yellow);
+    position: absolute;
+    left: 6px;
+    top: 7px;
+    display: none;
+}
+
+
+.action-item input {
+    display: none;
+}
+
+.select-btn {
+    margin-top: 46px;
+}
+
+.select-title {
+    margin: 0 auto;
+    padding: 62px 16px 0 16px;
+    max-width: 400px;
+}
+
+
+
+.select-toy-img {
+    z-index: -1;
+    position: fixed;
+    left: -110px;
+    bottom: 160px;
+    width: 100%;
+    min-width: 324px;
+    max-width: 350px;
+   
+}
+
+.select-whiskas-img {
+    z-index: -1;
+    position: fixed;
+    right: -100px;
+    bottom: 190px;
+    width: 100%;
+    min-width: 327px;
+    max-width: 350px;
+}
+
+.select-result-cozy {
+    display: none;
+    background: url(../images/background-result-cozy.png) no-repeat;
+    height: 100dvh;
+}
+
+.cozy-cats {
+    position: fixed;
+    right:-106px;
+    bottom: 130px;
+}
+
+.select-action  {
+    height: 300px
+}
+
+.color-yellow {
+    color: var(--color-yellow);
+}
+
+.tight-desc {
+    max-width: 310px;
+}
+
+.small-gap {
+    display: none;
+    gap: 14px;
+}
+
+.no-margin {
+    margin-top: 0;
+}
+
+.select-result-food {
+    display: none;
+    background: url(../images/background-result-food.png) no-repeat;
+    height: 100dvh;
+}
+
+.food-cats {
+    position: fixed;
+    right: -160px;
+    bottom: 290px;
+}
+
+@keyframes active-image {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+.select-animate {display: none;}
+
+.select-animation {
+    animation: active-image 100ms linear 4;
+}
+
+
+@media (max-width: 1020px){
+    .promo-container {
+        flex-wrap: wrap;
+        width: 480px;   
+    }    
+
+    .main-cat {
+        width: 480px;
+    }
+
+    .whiskas-logo {
+        top: 0;
+        right: -70px;
+    }
+}
