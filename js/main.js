@@ -54,6 +54,8 @@ function setTextSwapAction() {
             active.classList.remove("active")
         }
     }, 3000)
+    
+    setTimeout(endTextSawpAction, 7000)
 
     document.querySelectorAll('.js-swap').forEach(el=>{
         el.addEventListener('touchstart', () => {
@@ -73,7 +75,6 @@ function setTextSwapAction() {
                     active.classList.remove("active")
                 }
             }, 3000)
-            setTimeout(endTextSawpAction, 8000)
     })
     })
 }
