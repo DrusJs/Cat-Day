@@ -54,8 +54,6 @@ function setTextSwapAction() {
             active.classList.remove("active")
         }
     }, 3000)
-    
-    setTimeout(endTextSawpAction, 7000)
 
     document.querySelectorAll('.js-swap').forEach(el=>{
         el.addEventListener('touchstart', () => {
@@ -75,10 +73,14 @@ function setTextSwapAction() {
                     active.classList.remove("active")
                 }
             }, 3000)
+         })
     })
-    })
+
+    //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
+    setTimeout(endTextSawpAction, 7000)
 }
 
+//конец игры с поиском паучей
 function endTextSawpAction() {
     clearInterval(timer)
     document.querySelector(".js-swap.active").classList.remove("active")
@@ -86,21 +88,24 @@ function endTextSawpAction() {
 }
 
 function showResult() {
-    let radioContainer = document.querySelector(".action-item-radio")
     let input = document.querySelector("input:checked")
     if (!input){return}
+
+    let radioContainer = document.querySelector(".action-item-radio")
     radioContainer.classList.remove("active")
     document.querySelector(".select-animate").classList.remove("active")
+
     if (input.id == "gift-radio") {
         document.querySelector(".select-result-cozy").classList.add("active")
     } else {
         document.querySelector(".select-result-food").classList.add("active")
     }
+
     radioContainer.nextElementSibling.classList.add("active")
         setTimeout(()=> {
             radioContainer.nextElementSibling.classList.remove("active")
             document.querySelector(".small-gap").classList.add("active")
-        }, 6000)
+        }, 4000)
 }
 
 document.querySelector(".close-btn").addEventListener("click",()=> {
