@@ -80,7 +80,7 @@ body {
     border-radius: 100px;
     border: none;
     background-color: var(--color-tr-black);
-    position: absolute;
+    position: fixed;
     right: 24px;
     top: 24px;
 }
@@ -269,7 +269,7 @@ body {
 
 .select-title {
     margin: 0 auto;
-    padding: 62px 16px 0 16px;
+    padding: 20px 16px 0 16px;
     max-width: 400px;
 }
 
