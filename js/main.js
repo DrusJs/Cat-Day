@@ -16,6 +16,14 @@ document.querySelectorAll(".js-next").forEach(el => {
     })
 })
 
+let pageHeight = document.documentElement.scrollHeight
+console.log(pageHeight)
+if (pageHeight < 750) {
+    document.querySelector('.cozy-cats').classList.add('top')
+    document.querySelector('.food-cats').classList.add('top')
+    console.log(document.querySelector('.food-cats'))
+}
+
 document.getElementById("gift-label").addEventListener("click", ()=>{
     let image = document.querySelector(".select-toy-img")
     image.classList.add("select-animation")
@@ -46,21 +54,27 @@ function setTextSwapAction() {
             active.classList.remove("active")
         }
     }, 3000)
-    setTimeout(endTextSawpAction, 8000)
-    document.querySelectorAll('.js-swap').addEventListener('touchstart', () => {
-        clearInterval(timer)
+
+    document.querySelectorAll('.js-swap').forEach(el=>{
+        el.addEventListener('touchstart', () => {
+            clearInterval(timer)
+        })
     })
-    document.querySelectorAll('.js-swap').addEventListener('touchend', () => {
-        timer = setInterval(() => {
-            let active = document.querySelector(".js-swap.active")
-            if (active.nextElementSibling.classList.contains("js-swap")) {
-                active.nextElementSibling.classList.add("active")
-                active.classList.remove("active")
-            } else {
-                active.previousElementSibling.classList.add("active")
-                active.classList.remove("active")
-            }
-        }, 3000)
+
+    document.querySelectorAll('.js-swap').forEach(el=>{
+        el.addEventListener('touchend', () => {
+            timer = setInterval(() => {
+                let active = document.querySelector(".js-swap.active")
+                if (active.nextElementSibling.classList.contains("js-swap")) {
+                    active.nextElementSibling.classList.add("active")
+                    active.classList.remove("active")
+                } else {
+                    active.previousElementSibling.classList.add("active")
+                    active.classList.remove("active")
+                }
+            }, 3000)
+            setTimeout(endTextSawpAction, 8000)
+    })
     })
 }
 

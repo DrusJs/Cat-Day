@@ -92,7 +92,7 @@ body {
 
 .main-app-images {
     margin: 0 16px;
-    padding: 32px 0 14px 0;
+    padding: 0px 0 14px 0;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -170,7 +170,7 @@ body {
     font-family: var(--font-primary-b);
     color: var(--color-violet);
     font-size: 24px;
-    width: 95%;
+    width: 100%;
     min-width: 290px;
     min-height: 56px;
     height: 56px;
@@ -264,7 +264,7 @@ body {
 }
 
 .select-btn {
-    margin-top: 46px;
+    margin-top: 10px;
 }
 
 .select-title {
@@ -307,6 +307,10 @@ body {
     position: fixed;
     right:-106px;
     bottom: 130px;
+}
+.cozy-cats.top, .food-cats.top {
+    bottom: auto;
+    top: 10px;
 }
 
 .select-action  {
