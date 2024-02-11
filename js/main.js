@@ -45,8 +45,23 @@ function setTextSwapAction() {
             active.previousElementSibling.classList.add("active")
             active.classList.remove("active")
         }
-    }, 6000)
-    setTimeout(endTextSawpAction, 11000)
+    }, 3000)
+    setTimeout(endTextSawpAction, 8000)
+    document.querySelectorAll('.js-swap').addEventListener('touchstart', () => {
+        clearInterval(timer)
+    })
+    document.querySelectorAll('.js-swap').addEventListener('touchend', () => {
+        timer = setInterval(() => {
+            let active = document.querySelector(".js-swap.active")
+            if (active.nextElementSibling.classList.contains("js-swap")) {
+                active.nextElementSibling.classList.add("active")
+                active.classList.remove("active")
+            } else {
+                active.previousElementSibling.classList.add("active")
+                active.classList.remove("active")
+            }
+        }, 3000)
+    })
 }
 
 function endTextSawpAction() {
