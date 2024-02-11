@@ -28,11 +28,16 @@
     box-sizing: border-box;
 }
 
+html {
+    height: -webkit-fill-available;
+}
+
 
 body {
     background: url(../images/background.png) no-repeat;
     background-size: cover;
     min-height: 100dvh;
+    min-height: -webkit-fill-available;
 }
 
 .promo-container {
