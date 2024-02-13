@@ -343,7 +343,7 @@ body {
     right:-106px;
     bottom: 130px;
 }
-.cozy-cats.top, .food-cats.top {
+.top .cozy-cats, .top .food-cats {
     bottom: auto;
     top: 10px;
 }
