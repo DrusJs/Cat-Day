@@ -338,6 +338,41 @@ body {
     right: 190px;
 }
 
+.select-result-food .cat:nth-child(2) {
+    position: fixed;
+    bottom: 44px;
+    right: 91px;
+    z-index: 1;
+}
+.select-result-food .cat:nth-child(3) {
+    position: fixed;
+    bottom: 323px;
+    right: -23px;
+}
+.select-result-food .cat:nth-child(4) {
+    position: fixed;
+    bottom: 516px;
+    right: 116px;
+}
+
+.select-result-food.top .cat:nth-child(2) {
+    position: fixed;
+    top: 0px;
+    right: 76px;
+    z-index: 1;
+}
+.select-result-food.top .cat:nth-child(3) {
+    position: fixed;
+    top: 61px;
+    right: -20px;
+}
+.select-result-food.top .cat:nth-child(4) {
+    position: fixed;
+    top: 15px;
+    right: 117px;
+}
+
+
 .cozy-cats {
     position: fixed;
     right:-106px;
@@ -347,11 +382,28 @@ body {
     bottom: auto;
     top: 10px;
 }
+.top .food {
+    bottom: auto;
+    top: 146px;
+}
 
 .select-action  {
     height: 300px
 }
-
+.select-action.top {
+    height: 230px;
+}
+.select-action.top.small-gap {
+    gap: 8px;
+}
+.select-action.top.small-gap .p-desc {
+    font-size: 20px;
+}
+.select-action.top.small-gap .app-btn {
+    font-size: 20px;
+    min-height: 48px;
+    height: 48px;
+}
 .color-yellow {
     color: var(--color-yellow);
 }
@@ -381,7 +433,12 @@ body {
     right: -160px;
     bottom: 290px;
 }
-
+.food {
+    position: fixed;
+    right: 14px;
+    bottom: 280px;
+    z-index: 2;
+}
 @keyframes active-image {
     0% {
         transform: translateX(0);

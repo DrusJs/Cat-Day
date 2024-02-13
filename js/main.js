@@ -21,6 +21,10 @@ let pageHeight = document.documentElement.scrollHeight
 if (pageHeight < 750) {
     document.querySelector('.select-result-cozy').classList.add('top')
     document.querySelector('.select-result-food').classList.add('top')
+    document.querySelectorAll('.select-action').forEach(el=>{
+        el.classList.add('top')
+    })
+    document.querySelector('.action-item-radio.select-action').classList.remove('top')
 }
 
 document.getElementById("gift-label").addEventListener("click", ()=>{
