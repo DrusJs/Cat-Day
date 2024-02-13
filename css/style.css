@@ -107,6 +107,7 @@ body {
     background: var(--action-color);
     backdrop-filter: blur(12px);
     border-radius: 36px 36px 0 0;
+    z-index: 2;
 }
 
 .action-item {
@@ -317,7 +318,7 @@ body {
 .select-result-cozy .cat:nth-child(4) {
     position: fixed;
     top: -10px;
-    right: 140px;
+    right: 190px;
 }
 
 .cozy-cats {
