@@ -17,11 +17,10 @@ document.querySelectorAll(".js-next").forEach(el => {
 })
 
 let pageHeight = document.documentElement.scrollHeight
-console.log(pageHeight)
+
 if (pageHeight < 750) {
-    document.querySelector('.cozy-cats').classList.add('top')
-    document.querySelector('.food-cats').classList.add('top')
-    console.log(document.querySelector('.food-cats'))
+    document.querySelector('.select-result-cozy').classList.add('top')
+    document.querySelector('.select-result-food').classList.add('top')
 }
 
 document.getElementById("gift-label").addEventListener("click", ()=>{
