@@ -77,7 +77,7 @@ function setTextSwapAction() {
     })
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
-    setTimeout(endTextSawpAction, 7000)
+    setTimeout(endTextSawpAction, 1000)
 }
 
 //конец игры с поиском паучей

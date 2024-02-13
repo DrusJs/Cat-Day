@@ -279,8 +279,8 @@ body {
 .select-toy-img {
     z-index: -1;
     position: fixed;
-    left: -110px;
-    bottom: 160px;
+    left: -14px;
+    bottom: 9px;
     width: 100%;
     min-width: 324px;
     max-width: 350px;
@@ -290,8 +290,8 @@ body {
 .select-whiskas-img {
     z-index: -1;
     position: fixed;
-    right: -100px;
-    bottom: 190px;
+    right: -2px;
+    bottom: 40px;
     width: 80%;
     min-width: 300px;
     max-width: 350px;
@@ -302,6 +302,22 @@ body {
     background: url(../images/background-result-cozy.png) no-repeat;
     height: 100dvh;
     background-size: cover;
+}
+.select-result-cozy .cat:nth-child(2) {
+    position: fixed;
+    top: -15px;
+    right: 25px;
+    z-index: 1;
+}
+.select-result-cozy .cat:nth-child(3) {
+    position: fixed;
+    top: 9px;
+    right: -36px;
+}
+.select-result-cozy .cat:nth-child(4) {
+    position: fixed;
+    top: -10px;
+    right: 140px;
 }
 
 .cozy-cats {
@@ -323,12 +339,12 @@ body {
 }
 
 .tight-desc {
-    max-width: 310px;
+    max-width: 340px;
 }
 
 .small-gap {
     display: none;
-    gap: 14px;
+    gap: 20px;
 }
 
 .no-margin {
