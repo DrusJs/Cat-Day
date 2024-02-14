@@ -193,11 +193,22 @@ body {
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
 }
-.coin-block video {
+.coin-block {
+    display: none;
+}
+.coin-block.active {
+    display: block;
+}
+.coin-block img {
     position: fixed;
+    display: none;
+    width: 100vw;
     bottom: 224px;
     left: 50%;
     transform: translateX(-50%);
+}
+.coin-block img.active {
+    display: block;
 }
 
 .app-btn {
