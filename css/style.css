@@ -167,6 +167,39 @@ body {
     border-left: var(--color-yellow) solid 3px;
 }
 
+.count-flex {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+}
+.count-flex.active {
+    display: flex;
+}
+.count-flex .count-item {
+    width: 28px;
+    min-width: 28px;
+    height: 40px;
+    background-image: url(../images/count.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.count-flex .count-item.fill {    
+    background-image: url(../images/count-fill.png), url(../images/count.png);
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+}
+.coin-block video {
+    position: fixed;
+    bottom: 224px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .app-btn {
     background-color: var(--color-yellow);
     font-family: var(--font-primary-b);

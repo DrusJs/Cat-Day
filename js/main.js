@@ -47,6 +47,7 @@ let timer
 
 function setTextSwapAction() {
     document.querySelector(".main-app-images").classList.remove("active")
+    document.querySelector(".count-flex").classList.add("active")
     timer = setInterval(() => {
         let active = document.querySelector(".js-swap.active")
         if (active.nextElementSibling.classList.contains("js-swap")) {
@@ -85,7 +86,9 @@ function setTextSwapAction() {
 
 //конец игры с поиском паучей
 function endTextSawpAction() {
-    clearInterval(timer)
+    clearInterval(timer)    
+    document.querySelector(".count-flex").classList.remove("active")    
+    document.querySelector(".coin-flex").classList.remove("active")
     document.querySelector(".js-swap.active").classList.remove("active")
     document.querySelectorAll(".js-swap")[1].nextElementSibling.classList.add("active")
 }
