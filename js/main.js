@@ -114,3 +114,15 @@ function showResult() {
 document.querySelector(".close-btn").addEventListener("click",()=> {
     //document.querySelector(".app-error").classList.toggle("active")
 })
+
+function getOrientation(){
+    var orientation = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
+    if (orientation == "Landscape") {
+        document.querySelector(".app-error").classList.add("active")
+    } else {
+        document.querySelector(".app-error").classList.remove("active")
+    }
+}
+
+ window.onresize = function(){ getOrientation() }
+ getOrientation()
