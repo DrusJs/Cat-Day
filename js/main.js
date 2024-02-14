@@ -56,7 +56,7 @@ function setTextSwapAction() {
             active.previousElementSibling.classList.add("active")
             active.classList.remove("active")
         }
-    }, 3000)
+    }, 6000)
 
     document.querySelectorAll('.js-swap').forEach(el=>{
         el.addEventListener('touchstart', () => {
@@ -75,12 +75,12 @@ function setTextSwapAction() {
                     active.previousElementSibling.classList.add("active")
                     active.classList.remove("active")
                 }
-            }, 3000)
+            }, 6000)
          })
     })
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
-    setTimeout(endTextSawpAction, 1000)
+    //setTimeout(endTextSawpAction, 1000)
 }
 
 //конец игры с поиском паучей
