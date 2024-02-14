@@ -178,6 +178,8 @@ body {
     height: 56px;
     border-radius: 60px;
     border: none;
+    text-decoration: none;
+    display: block;
 }
 
 .p-desc {

@@ -112,5 +112,5 @@ function showResult() {
 }
 
 document.querySelector(".close-btn").addEventListener("click",()=> {
-    document.querySelector(".app-error").classList.toggle("active")
+    //document.querySelector(".app-error").classList.toggle("active")
 })
