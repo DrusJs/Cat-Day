@@ -49,7 +49,9 @@ function setTextSwapAction() {
     document.querySelector(".main-app-images").classList.remove("active")
     document.querySelector(".count-flex").classList.add("active")
     document.querySelector(".coin-block").classList.add("active")
+
     document.querySelector(".coin-block").firstElementChild.classList.add("active")
+
     timer = setInterval(() => {
         let active = document.querySelector(".js-swap.active")
         if (active.nextElementSibling.classList.contains("js-swap")) {
@@ -84,6 +86,12 @@ function setTextSwapAction() {
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
     //setTimeout(endTextSawpAction, 1000)
+}
+
+function swapCoin() {
+    let item = document.querySelector('.coin-block .active')
+    item.classList.remove('active')
+    item.nextElementSibling.classList.add('active')
 }
 
 //конец игры с поиском паучей
