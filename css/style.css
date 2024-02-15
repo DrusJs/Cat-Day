@@ -202,7 +202,7 @@ body {
     top: 0px;
     left: 0px;
     width: 100vw;
-    height: calc(100vh - 210px);
+    height: calc(100vh - 200px);
     display: none;
     background-color: #FFF;
 }
@@ -398,11 +398,12 @@ body {
 .select-toy-img {
     z-index: -1;
     position: fixed;
-    left: -14px;
-    bottom: 9px;
+    left: -116px;
+    bottom: 195px;
     width: 100%;
-    min-width: 324px;
+    min-width: 300px;
     max-width: 350px;
+    animation: fly-rotate 3s linear infinite;
 }
 
 @keyframes fly {
@@ -411,6 +412,14 @@ body {
     }
     70% {
         transform: translate3d(5px, 20px, 0) rotate(-10deg);
+    }
+}
+@keyframes fly-rotate {
+    40% {
+        transform: translate3d(15px, -20px, 0) rotate(-10deg);
+    }
+    70% {
+        transform: translate3d(-10px, 20px, 0) rotate(10deg);
     }
 }
 
