@@ -34,18 +34,10 @@ html {
 
 
 body {
+    background: url(../images/background.png) no-repeat;
+    background-size: cover;
     min-height: 100dvh;
     min-height: -webkit-fill-available;
-}
-
-.bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100dvh;
-    z-index: -1;
-    object-fit: cover;
 }
 
 .promo-container {
