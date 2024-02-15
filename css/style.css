@@ -136,8 +136,7 @@ body {
 }
 
 .select-result-cozy.active, .select-result-food.active {
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
 .action-item.action-item-radio {
@@ -437,8 +436,7 @@ body {
 
 
 .select-result-cozy {
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     background: url(../images/background-result-cozy.png) no-repeat;
     height: 100dvh;
     background-size: cover;
@@ -561,8 +559,7 @@ body {
 }
 
 .select-result-food {
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     background: url(../images/background-result-food.png) no-repeat;
     height: 100dvh;
     background-size: cover;
