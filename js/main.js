@@ -46,7 +46,7 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
 let timer, coin = 0
 
 document.querySelector('.camera').addEventListener('click', ()=>{
-    if (+coin > 4) {return}
+    if (+coin > 3) {return}
     if (+coin == 0) {
         document.querySelectorAll('.coin')[0].classList.add('active')
         coin++
@@ -94,22 +94,18 @@ function setTextSwapAction() {
     })
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
-    //setTimeout(endTextSawpAction, 1000)
+    //
 }
 
 
 
 function swapCoin(cnt) {
-    console.log(cnt)
-    if (+cnt==4) {
-        endTextSawpAction()
-        return
-    }
     let item = document.querySelectorAll('.coin-block img')[cnt]
     if (cnt==3) {
         document.querySelectorAll('.coin').forEach(el=>{
             el.classList.remove('active')
-        })
+        })        
+        setTimeout(endTextSawpAction, 2500)
     }
     item.classList.add('active')
 }
