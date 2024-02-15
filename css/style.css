@@ -90,12 +90,13 @@ body {
 
 .promo-logo, .app-main-cat {
     width: 100%;
-    max-width: 343px;
+    padding: 0 20px;
+    /* max-width: 343px; */
 }
 
 .main-app-images {
     margin: 0 16px;
-    padding: 0px 0 14px 0;
+    padding: 12px 0 14px 0;
     display: none;
     flex-direction: column;
     align-items: center;
