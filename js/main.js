@@ -46,7 +46,7 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
 let timer, coin = 0
 
 document.querySelector('.camera').addEventListener('click', ()=>{
-    if (+coin > 3) {return}
+    if (+coin > 2) {return}
     if (+coin == 0) {
         document.querySelectorAll('.coin')[0].classList.add('active')
         coin++
@@ -92,20 +92,23 @@ function setTextSwapAction() {
             }, 6000)
          })
     })
-
-    //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
-    //
 }
 
 
 
 function swapCoin(cnt) {
     let item = document.querySelectorAll('.coin-block img')[cnt]
+    if (+cnt==2) {
+        endTextSawpAction()
+    }
     if (cnt==3) {
         document.querySelectorAll('.coin').forEach(el=>{
             el.classList.remove('active')
-        })        
-        setTimeout(endTextSawpAction, 2500)
+        })
+        setTimeout(()=>{
+            document.querySelector('.action-item.active button').click()
+            showRadioBtn()
+        }, 2400)      
     }
     item.classList.add('active')
 }
@@ -113,11 +116,13 @@ function swapCoin(cnt) {
 //конец игры с поиском паучей
 function endTextSawpAction() {
     clearInterval(timer)    
+    document.querySelector(".js-swap.active").classList.remove("active")
+    document.querySelectorAll(".js-swap")[1].nextElementSibling.classList.add("active")
+}
+function showRadioBtn() {
     document.querySelector(".count-flex").classList.remove("active")
     document.querySelector(".camera").classList.remove("active")    
     document.querySelector(".coin-block").classList.remove("active")
-    document.querySelector(".js-swap.active").classList.remove("active")
-    document.querySelectorAll(".js-swap")[1].nextElementSibling.classList.add("active")
 }
 
 function showResult() {
