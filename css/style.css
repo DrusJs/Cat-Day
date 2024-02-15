@@ -196,6 +196,18 @@ body {
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
 }
+.camera {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: calc(100vh - 210px);
+    display: none;
+    background-color: #FFF;
+}
+.camera.active {
+    display: block;
+}
 .coin-block {
     display: none;
 }
@@ -209,6 +221,7 @@ body {
     bottom: 224px;
     left: 50%;
     transform: translateX(-50%);
+    pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
@@ -238,7 +251,7 @@ body {
 
     100% {
         transform: translateX(-50%) rotateX(680deg);
-        bottom: 230px;
+        bottom: 280px;
     }
     
 }
@@ -250,7 +263,7 @@ body {
 
     100% {
         transform: translateX(-53%) rotateX(680deg);
-        bottom: 234px;
+        bottom: 284px;
     }
     
 }
@@ -262,7 +275,7 @@ body {
 
     100% {
         transform: translateX(-48%) rotateX(680deg);
-        bottom: 238px;
+        bottom: 288px;
     }
     
 }

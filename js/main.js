@@ -43,14 +43,23 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
     })
 })
 
-let timer
+let timer, coin = 0
+
+document.querySelector('.camera').addEventListener('click', ()=>{
+    if (+coin > 4) {return}
+    if (+coin == 0) {
+        document.querySelectorAll('.coin')[0].classList.add('active')
+        coin++
+        return
+    }
+    swapCoin(coin)
+    coin++
+})
 
 function setTextSwapAction() {
     document.querySelector(".main-app-images").classList.remove("active")
     document.querySelector(".count-flex").classList.add("active")
     document.querySelector(".coin-block").classList.add("active")
-
-    document.querySelector(".coin-block").firstElementChild.classList.add("active")
 
     timer = setInterval(() => {
         let active = document.querySelector(".js-swap.active")
@@ -86,24 +95,30 @@ function setTextSwapAction() {
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
     //setTimeout(endTextSawpAction, 1000)
-    setTimeout(()=>{
-        document.querySelectorAll('.coin')[1].classList.add('active')
-    } , 700)
-    setTimeout(()=>{
-        document.querySelectorAll('.coin')[2].classList.add('active')
-    } , 1400)
 }
 
-function swapCoin() {
-    let item = document.querySelector('.coin-block .active')
-    item.classList.remove('active')
-    item.nextElementSibling.classList.add('active')
+
+
+function swapCoin(cnt) {
+    console.log(cnt)
+    if (+cnt==4) {
+        endTextSawpAction()
+        return
+    }
+    let item = document.querySelectorAll('.coin-block img')[cnt]
+    if (cnt==3) {
+        document.querySelectorAll('.coin').forEach(el=>{
+            el.classList.remove('active')
+        })
+    }
+    item.classList.add('active')
 }
 
 //конец игры с поиском паучей
 function endTextSawpAction() {
     clearInterval(timer)    
-    document.querySelector(".count-flex").classList.remove("active")    
+    document.querySelector(".count-flex").classList.remove("active")
+    document.querySelector(".camera").classList.remove("active")    
     document.querySelector(".coin-block").classList.remove("active")
     document.querySelector(".js-swap.active").classList.remove("active")
     document.querySelectorAll(".js-swap")[1].nextElementSibling.classList.add("active")
