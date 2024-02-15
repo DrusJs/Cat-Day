@@ -85,7 +85,13 @@ function setTextSwapAction() {
     })
 
     //endTextSawpAction нужно применить после нахождения 3 паучей в комнате
-    setTimeout(endTextSawpAction, 1000)
+    //setTimeout(endTextSawpAction, 1000)
+    setTimeout(()=>{
+        document.querySelectorAll('.coin')[1].classList.add('active')
+    } , 700)
+    setTimeout(()=>{
+        document.querySelectorAll('.coin')[2].classList.add('active')
+    } , 1400)
 }
 
 function swapCoin() {
