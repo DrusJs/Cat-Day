@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <script>
+        const env = ( () => {
+        if( /android/i.test( navigator.userAgent || navigator.vendo || window.opera ))
+            return 'Android';
+
+        if( [ 'iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod' ].includes( navigator.platform )
+        || ( navigator.userAgent.includes( 'Mac' ) && 'ontouchend' in document ))
+            return 'iOS';
+
+        return 'unknown';
+
+        } )();
+        if (env != 'unknown') {
+            location.href = 'app.html'
+        }
+    </script>
     <main>
 
         <section>
