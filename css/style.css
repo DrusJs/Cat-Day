@@ -83,6 +83,9 @@ body {
     position: fixed;
     right: 24px;
     top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .promo-logo, .app-main-cat {
@@ -223,7 +226,9 @@ body {
     border-radius: 60px;
     border: none;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-desc {
@@ -331,18 +336,28 @@ body {
     width: 100%;
     min-width: 324px;
     max-width: 350px;
-   
+}
+
+@keyframes fly {
+    40% {
+        transform: translate3d(-5px, -20px, 0) rotate(10deg);
+    }
+    70% {
+        transform: translate3d(5px, 20px, 0) rotate(-10deg);
+    }
 }
 
 .select-whiskas-img {
     z-index: -1;
     position: fixed;
-    right: -2px;
-    bottom: 40px;
+    right: -90px;
+    bottom: 200px;
     width: 80%;
     min-width: 300px;
-    max-width: 350px;
+    max-width: 330px;
+    animation: fly 3s linear infinite;
 }
+
 
 .select-result-cozy {
     display: none;
@@ -499,7 +514,9 @@ body {
     }
 }
 
-.select-animate {display: none;}
+.select-animate {
+    display: none;
+}
 
 .select-animation {
     animation: active-image 100ms linear 4;
