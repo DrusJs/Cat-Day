@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CatDay</title>
+	<script src="./js/three.min.js"></script>
+	<script src="./js/DeviceOrientationControls.js"></script>
+	<script src="./js/GLTFLoader.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +14,7 @@
     <main>
 
         <section>
-            <div class="app-container" >    
+            <div class="app-container" >
                 <audio src="cute.mp3" class="cute-audio"></audio>
                 <div class="sound hide"></div>
                 <a class="close-btn" href="https://spasibosberbank.ru/partners/stocks/den-koshek-2024">
@@ -134,7 +136,7 @@
 
                     <div class="action-item">
                         <p class="p-desc">Для запуска игры нужно предоставить доступ к камере</p>
-                        <button class="app-btn js-next" onclick="show3DField()">Продолжить</button>
+                        <button class="app-btn js-next" onmousedown="show3DField()">Продолжить</button>
                     </div>
 
                     <div class="action-item">
@@ -234,7 +236,7 @@
 
         </section>
 
-        <script src="js/main.js"></script>
+        <script src="js/main.js?v=1"></script>
 
     </main>
 </body>

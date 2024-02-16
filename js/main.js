@@ -1,11 +1,253 @@
+function getUserVideo( configuration )
+{
+	const facing = configuration.facingMode || 'environment';
+	const onSuccess = configuration.onSuccess;
+	const onError = configuration.onError || ( ( error ) =>	console.error( 'getUserMedia', error ) ); 
+	const video = document.createElement( 'video' );
+	const eventNames = [ 'touchstart', 'touchend', 'touchmove', 'touchcancel', 'click', 'mousedown', 'mouseup', 'mousemove', 'keydown', 'keyup', 'keypress', 'scroll' ];
+	
+	let readyToPlay = false;
+	
+	const play = function() 
+	{
+		if( readyToPlay )
+		{
+			video.play().then( () => 
+			{
+				onSuccess( video );
+				
+			} ).catch( ( error ) => 
+			{
+				onError( error );
+				disposeVideo( video );
+				
+			} );
+			
+			if( !video.paused ) eventNames.forEach( ( eventName ) => window.removeEventListener( eventName, play, true ) );
+		}
+	};
+	
+	eventNames.forEach( ( eventName ) => window.addEventListener( eventName, play, true ) );
+	
+	const success = function( stream ) 
+	{
+		video.srcObject = stream;
+		readyToPlay = true;
+		video.autoplay = true;
+		video.playsInline = true;
+		play();
+	};
+	
+	const constraints = {};
+	const mediaDevicesConstraints = {};
+	
+	if( configuration.width ) 
+	{
+		mediaDevicesConstraints.width = configuration.width;
+		
+		if( typeof configuration.width === 'object' ) 
+		{
+			if( configuration.width.max ) constraints.maxWidth = configuration.width.max;
+			if( configuration.width.min ) constraints.minWidth = configuration.width.min;
+		} 
+		else constraints.maxWidth = configuration.width;
+	}
+
+	if( configuration.height ) 
+	{
+		mediaDevicesConstraints.height = configuration.height;
+		
+		if( typeof configuration.height === 'object' ) 
+		{
+			if( configuration.height.max ) constraints.maxHeight = configuration.height.max;
+			if( configuration.height.min ) constraints.minHeight = configuration.height.min;
+		} 
+		else constraints.maxHeight = configuration.height;
+	}
+
+	mediaDevicesConstraints.facingMode = facing;
+	mediaDevicesConstraints.deviceId = configuration.deviceId;
+	
+	if( navigator.mediaDevices ) navigator.mediaDevices.getUserMedia( { audio:false, video:mediaDevicesConstraints }).then( success, onError );
+	else if( navigator.getUserMedia ) navigator.getUserMedia( { audio:false, video:constraints }, success, onError ); 
+	else onError( 'UserMedia is not supported in this browser' );
+	
+	return video;
+}
+
+let finished = false;
+let video, videoContainer;
+let renderer, camera, controls, scene, sprites, model;
+let timer, coin = 0
+
+const raycaster = new THREE.Raycaster();
+const loader = new THREE.GLTFLoader();
+
+loader.load( './whiskas_pack_01.glb', ( gltf ) =>
+{
+	console.log( 'GLTFLoaded' );
+	model = gltf.scene;
+} );
+
+function render()
+{
+	if( !finished )
+	{
+		controls.update();
+		
+		renderer.render( scene, camera );
+	
+		window.requestAnimationFrame( render );
+		
+		// console.log( 'render' );
+	}
+}
+
+function addSprite()
+{
+	try
+	{
+		sprites.position.y = 0;
+		
+		const radius = 3;
+		const theta = Math.floor( Math.random() * 10 ) * 36; // 270;//
+		const phi = 110 - Math.random() * 30;
+
+		sprite = new THREE.Group();
+		sprite.add( model.clone() );
+		sprite.position.setFromSphericalCoords( radius, phi * Math.PI / 180, theta * Math.PI / 180 );
+		sprite.lookAt( new THREE.Vector3() );
+		
+		sprites.add( sprite );
+		sprites.position.y = -1;
+	}
+	catch( error )
+	{
+		alert( error );
+	}
+
+	
+	//alert( 'added' );
+}
+
+function removeSprite()
+{
+	for( let i = sprites.children.length - 1; i >= 0; i-- )
+		sprites.remove( sprites.children[ i ] );
+}
+
+function startGame()
+{
+	/*const helper = new THREE.GridHelper( 100, 100, 0xFFFFFF, 0xFFFFFF );
+	helper.position.y = -2;
+	scene.add( helper );*/
+	try 
+	{
+		addSprite();
+		
+		const canvas = document.querySelector( '.camera' );
+		const { x, y, width, height } = canvas.getBoundingClientRect();
+		
+		canvas.onmousedown = ( event ) =>
+		{
+			const tp = new THREE.Vector2
+			(
+				 ( ( event.clientX - x ) / width )  * 2 - 1,
+				-( ( event.clientY - y ) / height ) * 2 + 1
+			);
+			
+			raycaster.setFromCamera( tp, camera );
+			
+			const intersections = raycaster.intersectObjects( sprites.children, true );
+			
+			if( intersections.length > 0 )
+			{
+				removeSprite();
+				
+				if( animationStart() ) // возвращает возомжность продолжения игры!!!
+				{	
+					setTimeout( addSprite, 2000 ); // Тут нужно установить таймер так, чтобы прошли все анимации запускаемые в animationStart
+				}
+				else 
+				{
+					canvas.onmousedown = null;
+				}
+			}
+		};
+	}
+	catch( error )
+	{
+		alert( error );
+	}
+}
+
+function stopRender()
+{
+	finished = true;
+	
+	video.srcObject.getVideoTracks()[ 0 ].stop();
+	video.srcObject = null;
+	video.src = null;
+	
+	scene.background = null;
+}
+
+function onVideoStreamReady( stream )
+{
+	video = stream;
+	
+	videoContainer = document.createElement( 'div' );
+	videoContainer.style.position = 'absolute';
+	videoContainer.style.right = 9999;
+	videoContainer.appendChild( video );
+	
+	const canvas = document.querySelector( '.camera' );
+	
+	canvas.classList.add('active')
+
+	const { width, height } = canvas.getBoundingClientRect();
+	
+	renderer = new THREE.WebGLRenderer( { canvas, antialias:true, preserveDrawingBuffer:false } );
+	renderer.outputEncoding = THREE.sRGBEncoding;
+	renderer.setSize( width, height );
+	renderer.setClearColor( 0x000000 );
+	
+	camera = new THREE.PerspectiveCamera( 60, width / height, 1, 1000 );
+	
+	controls = new THREE.DeviceOrientationControls( camera );
+	
+	sprites = new THREE.Group();
+	
+	const light = new THREE.DirectionalLight( 0xFFFFFF, 0.7 );
+
+	light.position.set( 0, 0.5, 0.75 );
+	
+	scene = new THREE.Scene();
+	scene.add( camera );
+	scene.add( sprites );
+	camera.add( light );
+	scene.add( new THREE.AmbientLight( 0xFFFFFF, 1 ) );
+	scene.background = new THREE.VideoTexture( video );
+	
+	render();
+}
+
+function onVideoStreamError( error )
+{
+	alert( error );
+}
+
+
 //запрос к камере
 function photoQuery() {
-
+	// Это переход на экран, не запрос!
 }
 
 //показываем 3D сцену
 function show3DField() {
-    document.querySelector('.camera').classList.add('active')
+	// Вот тут идет запрос, поменял onclick на onmousedown - нужно чтобы сработало getUserVideo по onmouseup или ontouchend
+	getUserVideo( { width:1280, height:720, facingMode:'environment', onSuccess:onVideoStreamReady, onError:onVideoStreamError } );
+	// В onVideoStreamError нужно что-то сделать для отображения ошибки, это ситуация в которой не возможно продолжать сценарий приложения
 }
 
 
@@ -54,22 +296,24 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
     })
 })
 
-let timer, coin = 0
+
 
 
 //анимация пакет и монеты при нажатии на пакет
 function animationStart() {
-    if (+coin > 2) {return}
+    if (+coin > 2) { return false  } // !!!
     if (+coin == 0) {
         document.querySelectorAll('.coin')[0].classList.add('active')
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
-        return
+        return true; // !!!
     }
     swapCoin(coin)
     coin++
     console.log(document.querySelectorAll('.pack'))
     document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
+	
+	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
 }
 
 function swapCoin(cnt) {
@@ -84,6 +328,7 @@ function swapCoin(cnt) {
         })
         setTimeout(()=>{
             //переход на радио кнопки
+			stopRender(); // Тут вырубаем камеру и останавливаем цикл рендера
             document.querySelector('.action-item.active button').click()
             showRadioBtn()
         }, 2400)
@@ -92,11 +337,18 @@ function swapCoin(cnt) {
 }
 
 
-document.querySelector('.camera').addEventListener('click', ()=>{
-    animationStart()
-})
+
 
 function setTextSwapAction() {
+	
+	if( model == null ) // Без загруженной модели не стратуем! По идее хорошо бы кнопку показать, только когда модель доступна
+	{
+		return;
+	}
+	
+	// Начало игры?	
+	setTimeout( startGame, 100 );
+	
     document.querySelector(".main-app-images").classList.remove("active")
     document.querySelector(".count-flex").classList.add("active")
     document.querySelector(".coin-block").classList.add("active")
@@ -148,6 +400,7 @@ function showRadioBtn() {
         el.remove()
     })
 }
+
 let audio = document.querySelector('.cute-audio')
 document.querySelector('.sound').addEventListener('click', (event)=>{
     event.currentTarget.classList.toggle('active')
@@ -163,6 +416,7 @@ function showResult() {
     if (!input){return}
 
     document.querySelector('.sound').classList.remove('hide')
+
     let radioContainer = document.querySelector(".action-item-radio")
     radioContainer.classList.remove("active")
     document.querySelector(".select-animate").classList.remove("active")
