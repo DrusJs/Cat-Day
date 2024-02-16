@@ -310,7 +310,7 @@ function animationStart() {
     }
     swapCoin(coin)
     coin++
-    console.log(document.querySelectorAll('.pack'))
+
     document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
 	
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
@@ -329,8 +329,9 @@ function swapCoin(cnt) {
         setTimeout(()=>{
             //переход на радио кнопки
 			stopRender(); // Тут вырубаем камеру и останавливаем цикл рендера
-            document.querySelector('.action-item.active button').click()
-            showRadioBtn()
+            return
+            // document.querySelector('.action-item.active button').click()
+            // showRadioBtn()
         }, 2400)
     }
     item.classList.add('active')
