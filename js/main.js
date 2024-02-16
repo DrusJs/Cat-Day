@@ -329,6 +329,7 @@ function swapCoin(cnt) {
         setTimeout(()=>{
             //переход на радио кнопки
 			stopRender(); // Тут вырубаем камеру и останавливаем цикл рендера
+            document.querySelector('.coin.active').classList.remove('active')
             return
             // document.querySelector('.action-item.active button').click()
             // showRadioBtn()
