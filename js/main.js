@@ -418,6 +418,8 @@ function showResult() {
     if (!input){return}
 
     document.querySelector('.sound').classList.remove('hide')
+    document.querySelector('.sound').classList.add('active')
+    audio.play()
 
     let radioContainer = document.querySelector(".action-item-radio")
     radioContainer.classList.remove("active")
