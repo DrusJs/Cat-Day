@@ -148,11 +148,21 @@ function showRadioBtn() {
         el.remove()
     })
 }
+let audio = document.querySelector('.cute-audio')
+document.querySelector('.sound').addEventListener('click', (event)=>{
+    event.currentTarget.classList.toggle('active')
+    if (event.currentTarget.classList.contains('active')) {
+        audio.play()
+    } else {
+        audio.pause()
+    }
+})
 
 function showResult() {
     let input = document.querySelector("input:checked")
     if (!input){return}
 
+    document.querySelector('.sound').classList.remove('hide')
     let radioContainer = document.querySelector(".action-item-radio")
     radioContainer.classList.remove("active")
     document.querySelector(".select-animate").classList.remove("active")
