@@ -1,3 +1,14 @@
+//запрос к камере
+function photoQuery() {
+
+}
+
+//показываем 3D сцену
+function show3DField() {
+    document.querySelector('.camera').classList.add('active')
+}
+
+
 document.querySelectorAll(".js-next").forEach(el => {
     el.addEventListener("click", (event)=> {
        let block = event.currentTarget.closest(".action-item")
@@ -45,15 +56,44 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
 
 let timer, coin = 0
 
-document.querySelector('.camera').addEventListener('click', ()=>{
+
+//анимация пакет и монеты при нажатии на пакет
+function animationStart() {
     if (+coin > 2) {return}
     if (+coin == 0) {
         document.querySelectorAll('.coin')[0].classList.add('active')
         coin++
+        document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
         return
     }
     swapCoin(coin)
     coin++
+    console.log(document.querySelectorAll('.pack'))
+    document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
+}
+
+function swapCoin(cnt) {
+    let item = document.querySelectorAll('.coin-block img')[cnt]
+    if (+cnt==2) {
+        //3 собранные монеты
+        endTextSawpAction()
+    }
+    if (cnt==3) {
+        document.querySelectorAll('.coin').forEach(el=>{
+            el.classList.remove('active')
+        })
+        setTimeout(()=>{
+            //переход на радио кнопки
+            document.querySelector('.action-item.active button').click()
+            showRadioBtn()
+        }, 2400)
+    }
+    item.classList.add('active')
+}
+
+
+document.querySelector('.camera').addEventListener('click', ()=>{
+    animationStart()
 })
 
 function setTextSwapAction() {
@@ -94,35 +134,19 @@ function setTextSwapAction() {
     })
 }
 
-
-
-function swapCoin(cnt) {
-    let item = document.querySelectorAll('.coin-block img')[cnt]
-    if (+cnt==2) {
-        endTextSawpAction()
-    }
-    if (cnt==3) {
-        document.querySelectorAll('.coin').forEach(el=>{
-            el.classList.remove('active')
-        })
-        setTimeout(()=>{
-            document.querySelector('.action-item.active button').click()
-            showRadioBtn()
-        }, 2400)      
-    }
-    item.classList.add('active')
-}
-
-//конец игры с поиском паучей
 function endTextSawpAction() {
     clearInterval(timer)    
     document.querySelector(".js-swap.active").classList.remove("active")
     document.querySelectorAll(".js-swap")[1].nextElementSibling.classList.add("active")
+
 }
 function showRadioBtn() {
     document.querySelector(".count-flex").classList.remove("active")
     document.querySelector(".camera").classList.remove("active")    
     document.querySelector(".coin-block").classList.remove("active")
+    document.querySelectorAll('.pack').forEach(el=>{
+        el.remove()
+    })
 }
 
 function showResult() {
@@ -145,10 +169,6 @@ function showResult() {
             document.querySelector(".small-gap").classList.add("active")
         }, 4000)
 }
-
-document.querySelector(".close-btn").addEventListener("click",()=> {
-    //document.querySelector(".app-error").classList.toggle("active")
-})
 
 function getOrientation(){
     var orientation = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";

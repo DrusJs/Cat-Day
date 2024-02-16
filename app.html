@@ -22,6 +22,10 @@
                      
                 </a>
 
+                <img  class="pack" src="images/pack.png" alt="Упаковка корма">
+                <img  class="pack" src="images/pack.png" alt="Упаковка корма">
+                <img  class="pack" src="images/pack.png" alt="Упаковка корма">
+
                 <div class="main-app-images active">
 
                     <svg class="promo-logo" width="480" height="173" viewBox="0 0 480 173" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,6 +63,8 @@
                     <div class="count-item"></div>
                     <div class="count-item"></div>
                 </div>
+
+
                 <div class="coin-block">
                     <img class="coin" src="images/coin.png" alt="Монета">
                     <img class="coin" src="images/coin.png" alt="Монета">
@@ -121,13 +127,13 @@
                                 
                         </div>
                         
-                        <button class="app-btn js-next">Узнать как</button>
+                        <button class="app-btn js-next" onclick="photoQuery()">Узнать как</button>
 
                     </div>
 
                     <div class="action-item">
                         <p class="p-desc">Для запуска игры нужно предоставить доступ к камере</p>
-                        <button class="app-btn js-next" onclick="document.querySelector('.camera').classList.add('active')">Продолжить</button>
+                        <button class="app-btn js-next" onclick="show3DField()">Продолжить</button>
                     </div>
 
                     <div class="action-item">
