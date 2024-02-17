@@ -75,6 +75,8 @@ function getUserVideo( configuration )
 	return video;
 }
 
+let deviceOrientationReady = false;
+let started = false;
 let finished = false;
 let video, videoContainer;
 let renderer, camera, controls, scene, sprites, model;
@@ -93,6 +95,11 @@ function render()
 {
 	if( !finished )
 	{
+		if( model && model.parent == scene )
+		{
+			scene.remove( model );
+		}
+		
 		controls.update();
 		
 		renderer.render( scene, camera );
@@ -103,7 +110,7 @@ function render()
 	}
 }
 
-function addSprite()
+function addSprite() 
 {
 	try
 	{
@@ -112,11 +119,15 @@ function addSprite()
 		const radius = 3;
 		const theta = Math.floor( Math.random() * 10 ) * 36; // 270;//
 		const phi = 110 - Math.random() * 30;
+		
+		model.position.set( 0, 0, 0 );
 
 		sprite = new THREE.Group();
-		sprite.add( model.clone() );
+		sprite.add( model );
+		// sprite.add( new THREE.Mesh( new THREE.SphereGeometry( 1 ), new THREE.MeshBasicMaterial( { color:0xFF0000 } ) ) );
 		sprite.position.setFromSphericalCoords( radius, phi * Math.PI / 180, theta * Math.PI / 180 );
 		sprite.lookAt( new THREE.Vector3() );
+		
 		
 		sprites.add( sprite );
 		sprites.position.y = -1;
@@ -141,6 +152,7 @@ function startGame()
 	/*const helper = new THREE.GridHelper( 100, 100, 0xFFFFFF, 0xFFFFFF );
 	helper.position.y = -2;
 	scene.add( helper );*/
+	
 	try 
 	{
 		addSprite();
@@ -192,6 +204,19 @@ function stopRender()
 	scene.background = null;
 }
 
+function onDeviceOrientationReady()
+{
+	deviceOrientationReady = true;
+	
+	if( video )
+		initGame();
+}
+
+function onDeviceOrientationError( error )
+{
+	alert( error );
+}
+
 function onVideoStreamReady( stream )
 {
 	video = stream;
@@ -201,6 +226,17 @@ function onVideoStreamReady( stream )
 	videoContainer.style.right = 9999;
 	videoContainer.appendChild( video );
 	
+	if( deviceOrientationReady )
+		initGame();
+}
+
+function onVideoStreamError( error )
+{
+	alert( error );
+}
+
+function initGame()
+{
 	const canvas = document.querySelector( '.camera' );
 	
 	canvas.classList.add('active')
@@ -229,13 +265,13 @@ function onVideoStreamReady( stream )
 	scene.add( new THREE.AmbientLight( 0xFFFFFF, 1 ) );
 	scene.background = new THREE.VideoTexture( video );
 	
+	
 	render();
+	
+	started = true;
 }
 
-function onVideoStreamError( error )
-{
-	alert( error );
-}
+
 
 
 //запрос к камере
@@ -248,6 +284,17 @@ function show3DField() {
 	// Вот тут идет запрос, поменял onclick на onmousedown - нужно чтобы сработало getUserVideo по onmouseup или ontouchend
 	getUserVideo( { width:1280, height:720, facingMode:'environment', onSuccess:onVideoStreamReady, onError:onVideoStreamError } );
 	// В onVideoStreamError нужно что-то сделать для отображения ошибки, это ситуация в которой не возможно продолжать сценарий приложения
+	
+	if( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) 
+	{
+		window.DeviceOrientationEvent.requestPermission().then( response =>
+		{
+			if( response == 'granted' ) onDeviceOrientationReady();
+			else onDeviceOrientationError( response );
+
+		} ).catch( error => onDeviceOrientationError( error ) );
+	}
+	else onDeviceOrientationReady();
 }
 
 
@@ -343,7 +390,7 @@ function swapCoin(cnt) {
 
 function setTextSwapAction() {
 	
-	if( model == null ) // Без загруженной модели не стратуем! По идее хорошо бы кнопку показать, только когда модель доступна
+	if( model == null || !started ) // Без загруженной модели не стратуем! По идее хорошо бы кнопку показать, только когда модель доступна
 	{
 		return;
 	}

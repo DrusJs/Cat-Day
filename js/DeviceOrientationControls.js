@@ -75,7 +75,8 @@ THREE.DeviceOrientationControls = function ( object ) {
 				}
 
 			} ).catch( function ( error ) {
-
+				
+				alert( error );
 				console.error( 'THREE.DeviceOrientationControls: Unable to use DeviceOrientation API:', error );
 
 			} );
