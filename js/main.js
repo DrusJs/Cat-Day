@@ -351,7 +351,10 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
 function animationStart() {
     if (+coin > 2) { return false  } // !!!
     if (+coin == 0) {
-        document.querySelectorAll('.coin')[0].classList.add('active')
+		setTimeout(()=>{
+			document.querySelectorAll('.coin')[0].classList.add('active')
+		},2000)
+        
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
         return true; // !!!
@@ -386,7 +389,10 @@ function swapCoin(cnt) {
             // showRadioBtn()
         }, 2400)
     }
-    item.classList.add('active')
+	setTimeout(()=>{
+		item.classList.add('active')
+	},2000)
+    
 }
 
 

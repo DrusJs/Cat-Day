@@ -275,7 +275,7 @@ body {
 
 .pack {
     position: absolute;
-    top: calc(100vh - 580px);
+    top: calc(100vh - 620px);
     left: calc(50% - 85px);
     width: 180px;
     display: none;
@@ -299,19 +299,19 @@ body {
 
 @-webkit-keyframes pack {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -328,19 +328,19 @@ body {
 
 @keyframes pack {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -356,19 +356,19 @@ body {
 }
 @-webkit-keyframes pack2 {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -384,19 +384,19 @@ body {
 }
 @keyframes pack2 {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -412,19 +412,19 @@ body {
 }
 @-webkit-keyframes pack3 {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -440,19 +440,19 @@ body {
 }
 @keyframes pack3 {
     0% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
          width: 180px;
     }
     30% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);        
         width: 180px;
         -webkit-transform: rotate(-10deg) scale(1.2);
                 transform: rotate(-10deg) scale(1.2);
     }
     60% {
-        top: calc(100vh - 580px);
+        top: calc(100vh - 620px);
         left: calc(50% - 85px);
         width: 180px;
         -webkit-transform: rotate(20deg) scale(1.2);
@@ -488,6 +488,7 @@ body {
 .coin-block img {
     position: fixed;
     display: none;
+    opacity: 0;
     left: 50%;
     bottom: 210px;
     width: 420px;
@@ -498,6 +499,7 @@ body {
 .coin-block img.coin.active {
     display: block;
     z-index: 4;
+    opacity: 1;
 }
 
 
