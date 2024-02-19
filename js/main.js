@@ -304,6 +304,7 @@ document.querySelectorAll(".js-next").forEach(el => {
        block.classList.remove("active")
        if (block.nextElementSibling){
         block.nextElementSibling.classList.add("active")
+		block.nextElementSibling.click()
        } else {
         block.closest(".action-container").classList.remove("active")
         let selectContainer = document.querySelector(".select-container")
