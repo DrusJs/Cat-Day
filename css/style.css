@@ -489,23 +489,17 @@ body {
     position: fixed;
     display: none;
     left: 50%;
-    bottom: 180px;
-    opacity: 0;
-    width: 360px;
+    bottom: 210px;
+    width: 420px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
-    width: 360px;
     z-index: 4;
-    opacity: 1;
 }
 
-.coin-block img.active {
-    display: block;
-}
 
 
 
