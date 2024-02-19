@@ -488,14 +488,12 @@ body {
 .coin-block img {
     position: fixed;
     display: none;
-    backface-visibility: visible;
     left: 50%;
     pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
     width: 80px;
-    backface-visibility: visible;
     z-index: 4;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
