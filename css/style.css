@@ -491,14 +491,14 @@ body {
     left: 50%;
     bottom: 180px;
     opacity: 0;
-    width: 100vw;
+    width: 360px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
-    width: 100vw;
+    width: 360px;
     z-index: 4;
     opacity: 1;
 }
