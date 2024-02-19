@@ -500,8 +500,8 @@ body {
     max-height: 50px;
     overflow: hidden;
     z-index: 0;
-    -webkit-transform: translateX(-50%) rotateY(10deg);
-            transform: translateX(-50%) rotateY(10deg);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     opacity: 0;
 }
 .coin-block img.coin.active:nth-child(1) {
