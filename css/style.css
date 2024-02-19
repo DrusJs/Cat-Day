@@ -491,6 +491,7 @@ body {
     left: 50%;
     bottom: 258px;
     opacity: 0;
+    width: 100vw;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
