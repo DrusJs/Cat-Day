@@ -490,6 +490,7 @@ body {
     display: none;
     left: 50%;
     bottom: 258px;
+    opacity: 0;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
