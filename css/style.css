@@ -519,23 +519,6 @@ body {
     display: block;
 }
 
-@-webkit-keyframes flip1 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-        bottom: 70vh;
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-        bottom: 250px;
-    }
-    
-}
-
 @keyframes flip1 {
     0% {
         opacity: 1;
