@@ -380,7 +380,7 @@ function swapCoin(cnt) {
         document.querySelectorAll('.coin').forEach(el=>{
             el.classList.remove('active')
         })
-		item.classList.add('active')
+		document.querySelectorAll('.coin-block img')[3].classList.add('active')
         setTimeout(()=>{
             //переход на радио кнопки
 			stopRender(); // Тут вырубаем камеру и останавливаем цикл рендера
