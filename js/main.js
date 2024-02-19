@@ -366,6 +366,9 @@ function animationStart() {
 
 function swapCoin(cnt) {
     let item = document.querySelectorAll('.coin-block img')[cnt]
+	if (document.querySelector('.coin.active')) {
+		document.querySelector('.coin.active').classList.remove('active')
+	}
     if (+cnt==2) {
         //3 собранные монеты
         endTextSawpAction()

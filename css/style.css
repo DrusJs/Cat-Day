@@ -489,114 +489,23 @@ body {
     position: fixed;
     display: none;
     left: 50%;
+    bottom: 258px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
     width: 80px;
     z-index: 4;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    opacity: 0;
+    opacity: 1;
 }
-.coin-block img.coin.active:nth-child(1) {
-    -webkit-animation: flip1 500ms linear 2s forwards;
-            animation: flip1 500ms linear 2s forwards;
-}
-.coin-block img.coin.active:nth-child(2) {
-    -webkit-animation: flip2 500ms linear 2s forwards;
-            animation: flip2 500ms linear 2s forwards;
-}
-.coin-block img.coin.active:nth-child(3) {
-    -webkit-animation: flip3 500ms linear 2s forwards;
-            animation: flip3 500ms linear 2s forwards;
-}
-
 
 .coin-block img.active {
     display: block;
 }
 
-@keyframes flip1 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-        bottom: 70vh;
-    }
 
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-        bottom: 250px;
-    }
-    
-}
-@-webkit-keyframes flip2 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-53%) rotateY(0deg);
-                transform: translateX(-53%) rotateY(0deg);
-        bottom: 70vh;
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-53%) rotateY(680deg);
-                transform: translateX(-53%) rotateY(680deg);
-        bottom: 254px;
-    }
-    
-}
-@keyframes flip2 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-53%) rotateX(0deg);
-                transform: translateX(-53%) rotateX(0deg);
-        bottom: 70vh;
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-53%) rotateX(680deg);
-                transform: translateX(-53%) rotateX(680deg);
-        bottom: 254px;
-    }
-    
-}
-@-webkit-keyframes flip3 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-48%) rotateX(0deg);
-                transform: translateX(-48%) rotateX(0deg);
-        bottom: 70vh;
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-48%) rotateX(680deg);
-                transform: translateX(-48%) rotateX(680deg);
-        bottom: 258px;
-    }
-    
-}
-@keyframes flip3 {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(-48%) rotateX(0deg);
-                transform: translateX(-48%) rotateX(0deg);
-        bottom: 70vh;
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(-48%) rotateX(680deg);
-                transform: translateX(-48%) rotateX(680deg);
-        bottom: 258px;
-    }
-    
-}
 
 .app-btn {
     background-color: var(--color-yellow);
