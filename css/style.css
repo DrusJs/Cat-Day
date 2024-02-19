@@ -298,31 +298,11 @@ body {
 }
 
 @-webkit-keyframes pack {
-    0% {
-        top: calc(100vh - 580px);
-        left: calc(50% - 85px);        
-         width: 180px;
-    }
-    30% {
-        top: calc(100vh - 580px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 580px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
+
     100% {
         top: 20px;
         left: 15px;
-        width: 28px;
-        -webkit-transform: rotate(10deg) scale(1);
-                transform: rotate(10deg) scale(1);
+
     }
 }
 
