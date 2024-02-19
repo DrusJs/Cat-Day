@@ -489,7 +489,7 @@ body {
     position: fixed;
     display: none;
     left: 50%;
-    bottom: 258px;
+    bottom: 180px;
     opacity: 0;
     width: 100vw;
     -webkit-transform: translateX(-50%);
