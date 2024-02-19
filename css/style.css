@@ -488,22 +488,25 @@ body {
 .coin-block img {
     position: fixed;
     display: none;
+    backface-visibility: hidden;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin.active {
     display: block;
     width: 80px;
-    max-height: 50px;
-    overflow: hidden;
-    z-index: 0;
-    /* -webkit-transform: translateX(-50%);
-            transform: translateX(-50%); */
+    backface-visibility: hidden;
+    z-index: 4;
+    -webkit-transform: translateX(-50%) rotateY(10deg);
+            transform: translateX(-50%) rotateY(10deg);
     opacity: 0;
 }
 .coin-block img.coin.active:nth-child(1) {
-    /* -webkit-animation: flip1 500ms linear 2s forwards;
-            animation: flip1 500ms linear 2s forwards; */
+    -webkit-animation: flip1 500ms linear 2s forwards;
+            animation: flip1 500ms linear 2s forwards;
 }
 .coin-block img.coin.active:nth-child(2) {
     -webkit-animation: flip2 500ms linear 2s forwards;
