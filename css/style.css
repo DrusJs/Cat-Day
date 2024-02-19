@@ -539,15 +539,15 @@ body {
 @keyframes flip1 {
     0% {
         opacity: 1;
-        -webkit-transform: translateX(-50%) rotateX(0deg);
-                transform: translateX(-50%) rotateX(0deg);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
         bottom: 70vh;
     }
 
     100% {
         opacity: 1;
-        -webkit-transform: translateX(-50%) rotateX(680deg);
-                transform: translateX(-50%) rotateX(680deg);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
         bottom: 250px;
     }
     
