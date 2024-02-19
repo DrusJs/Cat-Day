@@ -353,7 +353,7 @@ function animationStart() {
     if (+coin == 0) {
 		setTimeout(()=>{
 			document.querySelectorAll('.coin')[0].classList.add('active')
-		},2000)
+		},1000)
         
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
@@ -391,7 +391,7 @@ function swapCoin(cnt) {
     }
 	setTimeout(()=>{
 		item.classList.add('active')
-	},2000)
+	},1000)
     
 }
 
