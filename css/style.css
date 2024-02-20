@@ -495,7 +495,7 @@ body {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
-    transition: opacity 100ms 300ms, transform 200ms 700ms;
+    transition: opacity 100ms 1500ms, transform 400ms 2500ms;
 }
 .coin-block img.coin.active {
     display: block;
