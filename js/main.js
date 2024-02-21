@@ -179,7 +179,7 @@ function startGame()
 				
 				if( animationStart() ) // возвращает возомжность продолжения игры!!!
 				{	
-					setTimeout( addSprite, 2000 ); // Тут нужно установить таймер так, чтобы прошли все анимации запускаемые в animationStart
+					//setTimeout( addSprite, 2000 );  Тут нужно установить таймер так, чтобы прошли все анимации запускаемые в animationStart
 				}
 				else 
 				{
@@ -407,6 +407,7 @@ function countTapDrag(pack) {
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		pack.classList.add(`active${coin}`)
+		setTimeout(addSprite, 3000)
 	}
 }
 
