@@ -399,11 +399,11 @@ function animationStart() {
 var countG = 0
 function countTapDrag(pack) {
 	let wd = 160
-	pack.dataset.count = countG+1
-	if (+count < 4) {
-		document.querySelector('.count-item').innerHTML = pack.dataset.count
+	countG++
+	if (+countG < 4) {
+		document.querySelector('.count-item').innerHTML = countG
 		pack.classList.add('drag')
-		pack.style.width = (+wd + 5*pack.dataset.count) + 'px'
+		pack.style.width = (+wd + 5*countG) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
