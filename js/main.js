@@ -309,7 +309,7 @@ function show3DField( button ) {
         selectContainer.querySelector(".select-animate").classList.add("active")
         selectContainer.querySelector(".action-container").classList.add("active")
         selectContainer.querySelector(".action-item-radio").classList.add("active")
-       }
+     }
 	
 	// Вот тут идет запрос, поменял onclick на onmousedown - нужно чтобы сработало getUserVideo по onmouseup или ontouchend
 	getUserVideo( { width:1280, height:720, facingMode:'environment', onSuccess:onVideoStreamReady, onError:onVideoStreamError } );
