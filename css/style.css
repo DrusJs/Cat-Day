@@ -286,7 +286,7 @@ body {
 }
 .pack.show.drag {
     pointer-events: none;
-    animation: drag 250ms linear 5;
+    animation: drag 150ms linear 8;
 }
 .pack.active1 {
     -webkit-animation: pack 3s ease-out forwards;

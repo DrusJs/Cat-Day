@@ -382,14 +382,14 @@ function animationStart() {
     if (+coin > 2) { return false  } // !!!
     if (+coin == 0) {
 		setTimeout(()=>{
-			document.querySelectorAll('.coin')[0].classList.add('active')
+			//document.querySelectorAll('.coin')[0].classList.add('active')
 		},1300)
         
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
         return true; // !!!
     }
-    swapCoin(coin)
+    //swapCoin(coin)
     coin++
 
     document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
