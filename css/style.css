@@ -420,8 +420,8 @@ body {
     display: none;
     opacity: 0;
     left: 50%;
-    bottom: 210px;
-    width: 420px;
+    bottom: 220px;
+    width: 400px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
