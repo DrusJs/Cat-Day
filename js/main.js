@@ -410,8 +410,7 @@ function countTapDrag(pack) {
 		countG = 0
 		countPack++
 		swapCoin(countPack)
-		setTimeout(()=>{pack.classList.add(`active${coin}`)},1300)
-		
+		setTimeout(()=>{pack.classList.add(`active${coin}`)},1600)		
 		if (+countPack < 2) {setTimeout(addSprite, 1000)} 
 		else {
 			
