@@ -80,16 +80,33 @@ let deviceOrientationReady = false;
 let started = false;
 let finished = false;
 let video;
-let renderer, camera, controls, scene, sprites, model;
-let timer, coin = 0
+let renderer, camera, controls, scene, sprites, model, material; 
+let timer, coin = 0;
+let textureIndex = 0;
 
 const raycaster = new THREE.Raycaster();
 const loader = new THREE.GLTFLoader();
+const textureLoader = new THREE.TextureLoader();
+const onTextureLoaded = ( texture ) => texture.flipY = false;
+const textures =
+[
+	textureLoader.load( './model/whiskas_pack_01_baseColor.png', onTextureLoaded ),
+	textureLoader.load( './model/whiskas_pack_02_baseColor.png', onTextureLoaded ),
+	textureLoader.load( './model/whiskas_pack_03_baseColor.png', onTextureLoaded ),
+];
 
-loader.load( './whiskas_pack_01.glb', ( gltf ) =>
+loader.load( './model/scene.glb', ( gltf ) =>
 {
 	console.log( 'GLTFLoaded' );
 	model = gltf.scene;
+	model.traverse( child => 
+	{
+		if( child.isMesh && child.material && material == null )
+		{
+			material = child.material;
+			material.map = textures[ 0 ];
+		}
+	} );
 } );
 
 function render()
@@ -117,7 +134,7 @@ function addSprite()
 	{
 		sprites.position.y = 0;
 		
-		const radius = 4;
+		const radius = 5;
 		const theta = Math.floor( Math.random() * 10 ) * 36; // 270;//
 		const phi = 110 - Math.random() * 30;
 		
@@ -132,6 +149,11 @@ function addSprite()
 		
 		sprites.add( sprite );
 		sprites.position.y = -1;
+		
+		material.map = textures[ textureIndex ];
+		
+		if( textureIndex < textures.length - 1 )
+			textureIndex++;
 	}
 	catch( error )
 	{
@@ -252,7 +274,7 @@ function initGame()
 	const { width, height } = canvas.getBoundingClientRect();
 	
 	renderer = new THREE.WebGLRenderer( { canvas, antialias:true, preserveDrawingBuffer:false } );
-	renderer.outputEncoding = THREE.sRGBEncoding;
+	//renderer.outputEncoding = THREE.sRGBEncoding;
 	renderer.setSize( width, height );
 	renderer.setClearColor( 0x000000 );
 	
@@ -270,7 +292,7 @@ function initGame()
 	scene.add( camera );
 	scene.add( sprites );
 	camera.add( light );
-	scene.add( new THREE.AmbientLight( 0xFFFFFF, 1 ) );
+	scene.add( new THREE.AmbientLight( 0xFFFFFF, 0.7 ) );
 	scene.background = new THREE.VideoTexture( video );
 	
 	
@@ -407,6 +429,7 @@ function countTapDrag(pack) {
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
+		pack.removeAttribute("onclick");
 		countPack++		
 		pack.classList.add('drag')
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
@@ -557,6 +580,6 @@ function getOrientation(){
  window.onresize = function(){ getOrientation() }
  window.onload = () => { 
 	loaded = true;
-	//alert( 'loaded' );
+	console.log( 'loaded' );
  }
  getOrientation()
