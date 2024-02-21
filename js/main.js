@@ -75,10 +75,11 @@ function getUserVideo( configuration )
 	return video;
 }
 
+let loaded = false;
 let deviceOrientationReady = false;
 let started = false;
 let finished = false;
-let video, videoContainer;
+let video;
 let renderer, camera, controls, scene, sprites, model;
 let timer, coin = 0
 
@@ -116,7 +117,7 @@ function addSprite()
 	{
 		sprites.position.y = 0;
 		
-		const radius = 3;
+		const radius = 4;
 		const theta = Math.floor( Math.random() * 10 ) * 36; // 270;//
 		const phi = 110 - Math.random() * 30;
 		
@@ -220,11 +221,18 @@ function onDeviceOrientationError( error )
 function onVideoStreamReady( stream )
 {
 	video = stream;
+
+	video.style.display = 'block';
+    video.style.top = 0;
+    video.style.left = 0;
+    video.style.width = '2px';
+    video.style.height = '2px';
+    video.style.position = 'fixed';
+    video.style.opacity = 0.01;
+    video.style.pointerEvents = 'none';
+    video.style.zIndex = 999;
 	
-	videoContainer = document.createElement( 'div' );
-	videoContainer.style.position = 'absolute';
-	videoContainer.style.right = 9999;
-	videoContainer.appendChild( video );
+	document.body.appendChild( video );
 	
 	if( deviceOrientationReady )
 		initGame();
@@ -280,7 +288,29 @@ function photoQuery() {
 }
 
 //показываем 3D сцену
-function show3DField() {
+function show3DField( button ) {
+
+	
+	if( !loaded )
+	{
+		alert(' not loaded yet' );
+		return false;
+	}
+
+	let block = button.closest(".action-item") 
+       block.classList.remove("active")
+       if (block.nextElementSibling){
+        block.nextElementSibling.classList.add("active")
+		block.nextElementSibling.click()
+       } else {
+        block.closest(".action-container").classList.remove("active")
+        let selectContainer = document.querySelector(".select-container")
+        selectContainer.classList.add("active")
+        selectContainer.querySelector(".select-animate").classList.add("active")
+        selectContainer.querySelector(".action-container").classList.add("active")
+        selectContainer.querySelector(".action-item-radio").classList.add("active")
+       }
+	
 	// Вот тут идет запрос, поменял onclick на onmousedown - нужно чтобы сработало getUserVideo по onmouseup или ontouchend
 	getUserVideo( { width:1280, height:720, facingMode:'environment', onSuccess:onVideoStreamReady, onError:onVideoStreamError } );
 	// В onVideoStreamError нужно что-то сделать для отображения ошибки, это ситуация в которой не возможно продолжать сценарий приложения
@@ -294,7 +324,7 @@ function show3DField() {
 
 		} ).catch( error => onDeviceOrientationError( error ) );
 	}
-	else onDeviceOrientationReady();
+	else onDeviceOrientationReady(); 
 }
 
 
@@ -380,7 +410,7 @@ function swapCoin(cnt) {
         document.querySelectorAll('.coin').forEach(el=>{
             el.classList.remove('active')
         })
-		document.querySelectorAll('.coin-block img')[3].classList.add('active')
+		item.classList.add('active')
         setTimeout(()=>{
             //переход на радио кнопки
 			stopRender(); // Тут вырубаем камеру и останавливаем цикл рендера
@@ -506,4 +536,8 @@ function getOrientation(){
 }
 
  window.onresize = function(){ getOrientation() }
+ window.onload = () => { 
+	loaded = true;
+	alert( 'loaded' );
+ }
  getOrientation()
