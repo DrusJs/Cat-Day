@@ -410,10 +410,11 @@ function countTapDrag(pack) {
 		countG = 0
 		countPack++
 		document.querySelectorAll('.coin')[pack.dataset.count].classList.add('active')
+		swapCoin(countPack)
 		pack.classList.add(`active${coin}`)
 		if (+countPack < 3) {setTimeout(addSprite, 1000)} 
 		else {
-			swapCoin(3)
+			
 		} 
 	}
 }
