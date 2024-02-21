@@ -275,8 +275,8 @@ body {
 
 .pack {
     position: absolute;
-    top: calc(100vh - 700px);
-    left: calc(50% - 85px);
+    top: calc(100vh - 690px);
+    left: calc(50% - 100px);
     width: 160px;
     display: none;
     z-index: 5;
@@ -315,8 +315,8 @@ body {
 
 @-webkit-keyframes pack {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);        
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);        
     }
     100% {
         top: 20px;
@@ -329,8 +329,8 @@ body {
 
 @keyframes pack {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);        
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);        
     }
     100% {
         top: 20px;
@@ -342,8 +342,8 @@ body {
 }
 @-webkit-keyframes pack2 {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);     
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);     
     }
 
     100% {
@@ -356,8 +356,8 @@ body {
 }
 @keyframes pack2 {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);    
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);    
     }
 
     100% {
@@ -370,8 +370,8 @@ body {
 }
 @-webkit-keyframes pack3 {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);    
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);    
     }
 
     100% {
@@ -384,8 +384,8 @@ body {
 }
 @keyframes pack3 {
     0% {
-        top: calc(100vh - 700px);
-        left: calc(50% - 85px);   
+        top: calc(100vh - 690px);
+        left: calc(50% - 100px);   
     }
 
     100% {
