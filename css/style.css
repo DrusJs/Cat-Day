@@ -281,6 +281,13 @@ body {
     display: none;
     z-index: 5;
 }
+.pack.show {
+    display: block;
+}
+.pack.show.drag {
+    pointer-events: none;
+    animation: drag 250ms linear 5;
+}
 .pack.active1 {
     -webkit-animation: pack 3s ease-out forwards;
             animation: pack 3s ease-out forwards;
@@ -297,25 +304,20 @@ body {
     display: block;
 }
 
+@keyframes drag {
+    25% {
+        transform: translateX(10px) rotate(10deg);
+    }
+    75% {
+        transform: translateX(-10px) rotate(-10deg);
+    }
+}
+
 @-webkit-keyframes pack {
     0% {
         top: calc(100vh - 640px);
         left: calc(50% - 85px);        
-         width: 180px;
-    }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
         width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
     }
     100% {
         top: 20px;
@@ -332,20 +334,6 @@ body {
         left: calc(50% - 85px);        
          width: 180px;
     }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
     100% {
         top: 20px;
         left: 15px;
@@ -360,20 +348,7 @@ body {
         left: calc(50% - 85px);        
          width: 180px;
     }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
+
     100% {
         top: 20px;
         left: 49px;
@@ -388,20 +363,7 @@ body {
         left: calc(50% - 85px);        
          width: 180px;
     }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
+
     100% {
         top: 20px;
         left: 49px;
@@ -416,20 +378,7 @@ body {
         left: calc(50% - 85px);        
          width: 180px;
     }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
+
     100% {
         top: 20px;
         left: 83px;
@@ -444,20 +393,7 @@ body {
         left: calc(50% - 85px);        
          width: 180px;
     }
-    30% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);        
-        width: 180px;
-        -webkit-transform: rotate(-10deg) scale(1.2);
-                transform: rotate(-10deg) scale(1.2);
-    }
-    60% {
-        top: calc(100vh - 640px);
-        left: calc(50% - 85px);
-        width: 180px;
-        -webkit-transform: rotate(20deg) scale(1.2);
-                transform: rotate(20deg) scale(1.2);
-    }
+
     100% {
         top: 20px;
         left: 83px;

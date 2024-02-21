@@ -386,15 +386,26 @@ function animationStart() {
 		},1300)
         
         coin++
-        document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
+        document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
         return true; // !!!
     }
     swapCoin(coin)
     coin++
 
-    document.querySelectorAll('.pack')[coin-1].classList.add(`active${coin}`)
+    document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
 	
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
+}
+
+function countTapDrag(pack) {
+	let count = pack.dataset.count
+	pack.dataset.count = count++
+	if (count < 4) {
+		pack.classList.add('drag')
+		setTimeout(()=>{pack.classList.remove('drag')},1300)
+	} else {
+		pack.classList.add(`active${coin}`)
+	}
 }
 
 function swapCoin(cnt) {
