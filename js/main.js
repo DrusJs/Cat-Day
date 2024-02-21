@@ -402,7 +402,6 @@ function countTapDrag(pack) {
 	let wd = 160
 	countG++
 	if (+countG < 4) {
-		document.querySelector('.count-item').innerHTML = countG
 		pack.classList.add('drag')
 		pack.style.width = (+wd + 20*countG) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
