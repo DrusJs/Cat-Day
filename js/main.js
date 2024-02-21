@@ -396,17 +396,17 @@ function animationStart() {
 	
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
 }
-
+var countG = 0
 function countTapDrag(pack) {
-	let count = pack.dataset.count
 	let wd = 160
-	pack.dataset.count = count++
+	pack.dataset.count = countG+1
 	if (+count < 4) {
 		document.querySelector('.count-item').innerHTML = pack.dataset.count
 		pack.classList.add('drag')
 		pack.style.width = (+wd + 5*pack.dataset.count) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
+		countG = 0
 		pack.classList.add(`active${coin}`)
 		setTimeout(addSprite, 3000)
 	}
