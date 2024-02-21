@@ -397,22 +397,22 @@ function animationStart() {
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
 }
 var countG = 0
-var countPack = 0
+var countPack = -1
 function countTapDrag(pack) {
 	let wd = 160
 	countG++
 	if (+countG < 4) {
 		document.querySelector('.count-item').innerHTML = countG
 		pack.classList.add('drag')
-		pack.style.width = (+wd + 5*countG) + 'px'
+		pack.style.width = (+wd + 20*countG) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
 		countPack++
-		document.querySelectorAll('.coin')[pack.dataset.count].classList.add('active')
 		swapCoin(countPack)
-		pack.classList.add(`active${coin}`)
-		if (+countPack < 3) {setTimeout(addSprite, 1000)} 
+		setTimeout(()=>{pack.classList.add(`active${coin}`)},1300)
+		
+		if (+countPack < 2) {setTimeout(addSprite, 1000)} 
 		else {
 			
 		} 
@@ -425,7 +425,6 @@ function swapCoin(cnt) {
 		document.querySelector('.coin.active').classList.remove('active')
 	}
     if (+cnt==2) {
-        //3 собранные монеты
         endTextSawpAction()
     }
     if (cnt==3) {
@@ -442,9 +441,7 @@ function swapCoin(cnt) {
             // showRadioBtn()
         }, 2400)
     }
-	setTimeout(()=>{
-		item.classList.add('active')
-	},1300)
+	item.classList.add('active')
     
 }
 
