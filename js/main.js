@@ -293,7 +293,7 @@ function show3DField( button ) {
 	
 	if( !loaded )
 	{
-		alert(' not loaded yet' );
+		//alert(' not loaded yet' );
 		return false;
 	}
 
@@ -549,6 +549,6 @@ function getOrientation(){
  window.onresize = function(){ getOrientation() }
  window.onload = () => { 
 	loaded = true;
-	alert( 'loaded' );
+	//alert( 'loaded' );
  }
  getOrientation()
