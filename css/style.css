@@ -289,18 +289,18 @@ body {
     animation: drag 150ms linear 8;
 }
 .pack.active1 {
-    -webkit-animation: pack 3s ease-out forwards;
-            animation: pack 3s ease-out forwards;
+    -webkit-animation: pack 0.6s ease-out forwards;
+            animation: pack 0.6s ease-out forwards;
     display: block;
 }
 .pack.active2 {
-    -webkit-animation: pack2 3s ease-out forwards;
-            animation: pack2 3s ease-out forwards;
+    -webkit-animation: pack2 0.6s ease-out forwards;
+            animation: pack2 0.6s ease-out forwards;
     display: block;
 }
 .pack.active3 {
-    -webkit-animation: pack3 3s ease-out forwards;
-            animation: pack3 3s ease-out forwards;
+    -webkit-animation: pack3 0.6s ease-out forwards;
+            animation: pack3 0.6s ease-out forwards;
     display: block;
 }
 
