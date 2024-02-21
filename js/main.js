@@ -402,6 +402,7 @@ function countTapDrag(pack) {
 	let wd = 160
 	pack.dataset.count = count++
 	if (+count < 4) {
+		document.querySelector('.count-item').innerHTML = pack.dataset.count
 		pack.classList.add('drag')
 		pack.style.width = (+wd + 5*pack.dataset.count) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
