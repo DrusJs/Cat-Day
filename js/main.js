@@ -399,9 +399,11 @@ function animationStart() {
 
 function countTapDrag(pack) {
 	let count = pack.dataset.count
+	let wd = 160
 	pack.dataset.count = count++
-	if (count < 4) {
+	if (+count < 4) {
 		pack.classList.add('drag')
+		pack.style.width = (+wd + 5*pack.dataset.count) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		pack.classList.add(`active${coin}`)
