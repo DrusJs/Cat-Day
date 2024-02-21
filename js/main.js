@@ -403,7 +403,7 @@ function countTapDrag(pack) {
 	countG++
 	if (+countG < 4) {
 		pack.classList.add('drag')
-		pack.style.width = (+wd + 20*countG) + 'px'
+		pack.style.width = (+wd + 10*countG) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
@@ -411,8 +411,8 @@ function countTapDrag(pack) {
 		pack.classList.add('drag')
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 		swapCoin(countPack)
-		setTimeout(()=>{pack.classList.add(`active${coin}`)},1600)		
-		if (+countPack < 2) {setTimeout(addSprite, 1000)} 
+		setTimeout(()=>{pack.classList.add(`active${coin}`)},1800)		
+		if (+countPack < 2) {setTimeout(addSprite, 1800)} 
 		else {
 			
 		} 
