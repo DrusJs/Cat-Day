@@ -424,6 +424,7 @@ function countTapDrag(pack) {
 	countG++
 	if (+countG < 3) {
 		pack.classList.add('drag')
+		swapText()
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
@@ -466,7 +467,16 @@ function swapCoin(cnt) {
     
 }
 
-
+function swapText() {
+	let active = document.querySelector(".js-swap.active")
+	if (active.nextElementSibling.classList.contains("js-swap")) {
+		active.nextElementSibling.classList.add("active")
+		active.classList.remove("active")
+	} else {
+		active.previousElementSibling.classList.add("active")
+		active.classList.remove("active")
+	}
+}
 
 
 function setTextSwapAction() {
@@ -483,37 +493,37 @@ function setTextSwapAction() {
     document.querySelector(".count-flex").classList.add("active")
     document.querySelector(".coin-block").classList.add("active")
 
-    timer = setInterval(() => {
-        let active = document.querySelector(".js-swap.active")
-        if (active.nextElementSibling.classList.contains("js-swap")) {
-            active.nextElementSibling.classList.add("active")
-            active.classList.remove("active")
-        } else {
-            active.previousElementSibling.classList.add("active")
-            active.classList.remove("active")
-        }
-    }, 6000)
+    // timer = setInterval(() => {
+    //     let active = document.querySelector(".js-swap.active")
+    //     if (active.nextElementSibling.classList.contains("js-swap")) {
+    //         active.nextElementSibling.classList.add("active")
+    //         active.classList.remove("active")
+    //     } else {
+    //         active.previousElementSibling.classList.add("active")
+    //         active.classList.remove("active")
+    //     }
+    // }, 6000)
 
-    document.querySelectorAll('.js-swap').forEach(el=>{
-        el.addEventListener('touchstart', () => {
-            clearInterval(timer)
-        })
-    })
+    // document.querySelectorAll('.js-swap').forEach(el=>{
+    //     el.addEventListener('touchstart', () => {
+    //         clearInterval(timer)
+    //     })
+    // })
 
-    document.querySelectorAll('.js-swap').forEach(el=>{
-        el.addEventListener('touchend', () => {
-            timer = setInterval(() => {
-                let active = document.querySelector(".js-swap.active")
-                if (active.nextElementSibling.classList.contains("js-swap")) {
-                    active.nextElementSibling.classList.add("active")
-                    active.classList.remove("active")
-                } else {
-                    active.previousElementSibling.classList.add("active")
-                    active.classList.remove("active")
-                }
-            }, 6000)
-         })
-    })
+    // document.querySelectorAll('.js-swap').forEach(el=>{
+    //     el.addEventListener('touchend', () => {
+    //         timer = setInterval(() => {
+    //             let active = document.querySelector(".js-swap.active")
+    //             if (active.nextElementSibling.classList.contains("js-swap")) {
+    //                 active.nextElementSibling.classList.add("active")
+    //                 active.classList.remove("active")
+    //             } else {
+    //                 active.previousElementSibling.classList.add("active")
+    //                 active.classList.remove("active")
+    //             }
+    //         }, 6000)
+    //      })
+    // })
 }
 
 function endTextSawpAction() {
