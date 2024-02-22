@@ -589,5 +589,6 @@ function getOrientation(){
  window.onload = () => { 
 	loaded = true;
 	console.log( 'loaded' );
+	// document.querySelector(".loader").remove()
  }
  getOrientation()
