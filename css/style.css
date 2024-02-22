@@ -722,7 +722,7 @@ body {
 }
 .top .food {
     bottom: auto;
-    top: 136px;
+    top: 142px;
 }
 
 .select-action  {
@@ -769,7 +769,7 @@ body {
 .food-cats {
     position: fixed;
     right: -160px;
-    bottom: 290px;
+    bottom: 284px;
 }
 .food {
     position: fixed;
