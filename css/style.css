@@ -718,7 +718,7 @@ body {
 }
 .top .cozy-cats, .top .food-cats {
     bottom: auto;
-    top: 10px;
+    top: 6px;
 }
 .top .food {
     bottom: auto;
@@ -774,7 +774,7 @@ body {
 .food {
     position: fixed;
     right: 14px;
-    bottom: 290px;
+    bottom: 284px;
     z-index: 2;
 }
 @-webkit-keyframes active-image {
