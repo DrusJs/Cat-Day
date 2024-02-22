@@ -276,7 +276,7 @@ body {
 
 .pack {
     position: absolute;
-    top: calc( (100vh - 240px )/2 - 130px);
+    top: calc( (100vh - 240px )/2 - 140px);
     left: calc(50% - 80px);
     width: 160px;
     display: none;
