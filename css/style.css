@@ -134,7 +134,7 @@ body {
 
 .promo-logo, .app-main-cat {
     width: 95%;
-    padding: 0 20px;
+    object-fit: contain;
     /* max-width: 343px; */
 }
 
@@ -722,7 +722,7 @@ body {
 }
 .top .food {
     bottom: auto;
-    top: 146px;
+    top: 136px;
 }
 
 .select-action  {
@@ -774,7 +774,7 @@ body {
 .food {
     position: fixed;
     right: 14px;
-    bottom: 280px;
+    bottom: 290px;
     z-index: 2;
 }
 @-webkit-keyframes active-image {
