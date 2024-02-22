@@ -424,10 +424,10 @@ function countTapDrag(pack) {
 	countG++
 	if (+countG < 3) {
 		pack.classList.add('drag')
-		swapText()
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0
+		swapText()
 		pack.removeAttribute("onclick");
 		countPack++		
 		pack.classList.add('drag')
