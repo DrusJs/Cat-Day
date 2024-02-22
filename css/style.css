@@ -464,7 +464,7 @@ body {
 .p-desc {
     font-family: var(--font-primary-m);
     color: var(--color-white);
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: -0.01em;
     text-align: center;
     line-height: 28px;
