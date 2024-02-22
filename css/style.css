@@ -722,7 +722,7 @@ body {
 }
 .top .food {
     bottom: auto;
-    top: 136px;
+    top: 134px;
 }
 
 .select-action  {
@@ -774,7 +774,7 @@ body {
 .food {
     position: fixed;
     right: 14px;
-    bottom: 290px;
+    bottom: 292px;
     z-index: 2;
 }
 @-webkit-keyframes active-image {
