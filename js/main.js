@@ -441,6 +441,10 @@ function countTapDrag(pack) {
 	}
 }
 
+document.querySelectorAll('.coin-block img').forEach(el=>{
+	el.src = `${el.src}?${new Date().getTime()}`
+})
+
 function swapCoin(cnt) {
     let item = document.querySelectorAll('.coin-block img')[cnt]
 	if (document.querySelector('.coin.active')) {
