@@ -421,11 +421,9 @@ function animationStart() {
 var countG = 0
 var countPack = -1
 function countTapDrag(pack) {
-	let wd = 160
 	countG++
-	if (+countG < 4) {
+	if (+countG < 3) {
 		pack.classList.add('drag')
-		pack.style.width = (+wd + 10*countG) + 'px'
 		setTimeout(()=>{pack.classList.remove('drag')},1300)
 	} else {
 		countG = 0

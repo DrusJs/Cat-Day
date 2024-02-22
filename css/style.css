@@ -133,7 +133,7 @@ body {
 }
 
 .promo-logo, .app-main-cat {
-    width: 100%;
+    width: 95%;
     padding: 0 20px;
     /* max-width: 343px; */
 }
@@ -142,6 +142,7 @@ body {
     margin: 0 16px;
     padding: 12px 0 14px 0;
     display: none;
+    max-height: calc(100vh - 200px);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -275,11 +276,11 @@ body {
 
 .pack {
     position: absolute;
-    top: calc(100vh - 690px);
-    left: calc(50% - 85px);
+    top: calc( (100vh - 240px )/2 - 120px);
+    left: calc(50% - 80px);
     width: 160px;
     display: none;
-    z-index: 5;
+    z-index: 2;
 }
 .pack.show {
     display: block;
@@ -420,18 +421,19 @@ body {
     display: none;
     opacity: 0;
     left: 50%;
-    bottom: 220px;
+    z-index: 3;
+    bottom: 250px;
     width: 400px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin {
+    bottom: 230px;
     transition: opacity 100ms 1500ms, transform 400ms 2500ms;
 }
 .coin-block img.coin.active, .coin-block img.active {
     display: block;
-    z-index: 2;
     opacity: 1;
     -webkit-transform: translateX(-50%) scale(1.1);
     transform: translateX(-50%) scale(1.1);
