@@ -422,14 +422,16 @@ body {
     opacity: 0;
     left: 50%;
     z-index: 3;
-    bottom: 235px;
+    bottom: 244px;
     width: 380px;
+    border-radius: 110px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
 }
 .coin-block img.coin {
-    bottom: 230px;
+    bottom: 210px;
+    border-radius: 0px;
     transition: opacity 100ms 1500ms, transform 400ms 2500ms;
 }
 .coin-block img.coin.active, .coin-block img.active {
