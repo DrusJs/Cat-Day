@@ -430,7 +430,7 @@ body {
     pointer-events: none;
 }
 .coin-block img.coin {
-    bottom: 226px;
+    bottom: 230px;
     border-radius: 0px;
     transition: opacity 100ms 1500ms, transform 400ms 2500ms;
 }
