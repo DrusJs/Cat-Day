@@ -418,15 +418,8 @@ function animationStart() {
 	
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
 }
-var countG = 0
 var countPack = -1
 function countTapDrag(pack) {
-	countG++
-	if (+countG < 3) {
-		pack.classList.add('drag')
-		setTimeout(()=>{pack.classList.remove('drag')},1300)
-	} else {
-		countG = 0
 		swapText()
 		pack.removeAttribute("onclick");
 		countPack++		
@@ -435,10 +428,6 @@ function countTapDrag(pack) {
 		swapCoin(countPack)
 		setTimeout(()=>{pack.classList.add(`active${coin}`)},1700)		
 		if (+countPack < 2) {setTimeout(addSprite, 2000)} 
-		else {
-			
-		} 
-	}
 }
 
 document.querySelectorAll('.coin-block img').forEach(el=>{

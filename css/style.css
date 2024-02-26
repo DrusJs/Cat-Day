@@ -697,18 +697,18 @@ body {
 
 .select-result-food.top .cat:nth-child(2) {
     position: fixed;
-    top: 0px;
+    top: -24px;
     right: 76px;
     z-index: 1;
 }
 .select-result-food.top .cat:nth-child(3) {
     position: fixed;
-    top: 61px;
+    top: 35px;
     right: -20px;
 }
 .select-result-food.top .cat:nth-child(4) {
     position: fixed;
-    top: 15px;
+    top: -15px;
     right: 117px;
 }
 
@@ -720,11 +720,11 @@ body {
 }
 .top .cozy-cats, .top .food-cats {
     bottom: auto;
-    top: 6px;
+    top: -14px;
 }
 .top .food {
     bottom: auto;
-    top: 134px;
+    top: 110px;
 }
 
 .select-action  {
@@ -771,7 +771,7 @@ body {
 .food-cats {
     position: fixed;
     right: -160px;
-    bottom: 284px;
+    bottom: 294px;
 }
 .food {
     position: fixed;
