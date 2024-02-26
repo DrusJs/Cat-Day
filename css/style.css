@@ -422,7 +422,7 @@ body {
     opacity: 0;
     left: 50%;
     z-index: 3;
-    bottom: 244px;
+    bottom: 260px;
     width: 380px;
     border-radius: 110px;
     -webkit-transform: translateX(-50%);
@@ -430,7 +430,7 @@ body {
     pointer-events: none;
 }
 .coin-block img.coin {
-    bottom: 210px;
+    bottom: 226px;
     border-radius: 0px;
     transition: opacity 100ms 1500ms, transform 400ms 2500ms;
 }
