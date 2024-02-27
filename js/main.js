@@ -403,16 +403,12 @@ document.getElementById("feed-label").addEventListener("click", ()=>{
 function animationStart() {
     if (+coin > 2) { return false  } // !!!
     if (+coin == 0) {
-		setTimeout(()=>{
-			//document.querySelectorAll('.coin')[0].classList.add('active')
-		},1300)
         
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
 		countTapDrag(document.querySelectorAll('.pack')[coin-1])
         return true; // !!!
     }
-    //swapCoin(coin)
     coin++
 
     document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
