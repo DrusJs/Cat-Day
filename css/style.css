@@ -35,8 +35,10 @@ html {
 
 
 body {
-    background: url(../images/background.png) no-repeat;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;    
     background-size: cover;
+    background-color: #8f1576;
     min-height: 100dvh;
     min-height: -webkit-fill-available;
 }
