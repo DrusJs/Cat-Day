@@ -409,12 +409,14 @@ function animationStart() {
         
         coin++
         document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
+		countTapDrag(document.querySelectorAll('.pack')[coin-1])
         return true; // !!!
     }
     //swapCoin(coin)
     coin++
 
     document.querySelectorAll('.pack')[coin-1].classList.add(`show`)
+	countTapDrag(document.querySelectorAll('.pack')[coin-1])
 	
 	return ( +coin <= 2 ); // Boolean - нужно ли еще добавлять пакеты в Scene
 }
