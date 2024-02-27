@@ -421,11 +421,11 @@ function countTapDrag(pack) {
 		swapText()
 		pack.removeAttribute("onclick");
 		countPack++		
-		pack.classList.add('drag')
-		setTimeout(()=>{pack.classList.remove('drag')},1300)
+		setTimeout(()=>{pack.classList.add('drag')},300)
+		setTimeout(()=>{pack.classList.remove('drag')},1600)
 		swapCoin(countPack)
-		setTimeout(()=>{pack.classList.add(`active${coin}`)},1700)		
-		if (+countPack < 2) {setTimeout(addSprite, 2000)} 
+		setTimeout(()=>{pack.classList.add(`active${coin}`)},2000)		
+		if (+countPack < 2) {setTimeout(addSprite, 2200)} 
 }
 
 document.querySelectorAll('.coin-block img').forEach(el=>{
