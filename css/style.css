@@ -648,8 +648,8 @@ body {
 }
 .select-result-cozy .cat:nth-child(2) {
     position: fixed;
-    bottom: 40px;
-    right: 25px;
+    bottom: 262px;
+    right: 139px;
     z-index: 1;
 }
 .select-result-cozy .cat:nth-child(3) {
@@ -665,8 +665,8 @@ body {
 
 .select-result-cozy.top .cat:nth-child(2) {
     position: fixed;
-    top: -15px;
-    right: 25px;
+    top: 118px;
+    right: 138px;
     z-index: 1;
 }
 .select-result-cozy.top .cat:nth-child(3) {
@@ -682,8 +682,8 @@ body {
 
 .select-result-food .cat:nth-child(2) {
     position: fixed;
-    bottom: 44px;
-    right: 91px;
+    bottom: 262px;
+    right: 192px;
     z-index: 1;
 }
 .select-result-food .cat:nth-child(3) {
@@ -699,8 +699,8 @@ body {
 
 .select-result-food.top .cat:nth-child(2) {
     position: fixed;
-    top: -24px;
-    right: 76px;
+    top: 100px;
+    right: 200px;
     z-index: 1;
 }
 .select-result-food.top .cat:nth-child(3) {
@@ -720,9 +720,12 @@ body {
     right:-106px;
     bottom: 130px;
 }
-.top .cozy-cats, .top .food-cats {
+.top .food-cats {
     bottom: auto;
     top: -14px;
+}
+.top .cozy-cats {
+    top: 10px;
 }
 .top .food {
     bottom: auto;
