@@ -579,7 +579,8 @@ function getOrientation(){
  window.onresize = function(){ getOrientation() }
  window.onload = () => { 
 	loaded = true;
-	console.log( 'loaded' );
-	// document.querySelector(".loader").remove()
+	console.log( 'loaded');
+	document.querySelector(".loader").classList.add('hide')
+	setTimeout(()=>{document.querySelector(".loader").remove()},400)
  }
  getOrientation()
